@@ -27,5 +27,18 @@ class PedidoSeeder extends Seeder
             'updated_at' => now(),
         ]);
         
+        DB::table('pedido')->insert([
+            'mail_cliente' => "cliente2@gmail.com",
+            'fecha' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('pedido')->insert([
+            'mail_cliente' => "cliente8@gmail.com",
+            'fecha' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }

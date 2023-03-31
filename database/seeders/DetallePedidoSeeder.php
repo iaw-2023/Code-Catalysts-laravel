@@ -28,6 +28,29 @@ class DetallePedidoSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        DB::table('detalle_pedido')->insert([
+            'id_pedido' => 2,
+            'id_camiseta' => 17,
+            'talle' => "XL",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('detalle_pedido')->insert([
+            'id_pedido' => 3,
+            'id_camiseta' => 3,
+            'talle' => "L",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
         
+        DB::table('detalle_pedido')->insert([
+            'id_pedido' => 4,
+            'id_camiseta' => 4,
+            'talle' => "M",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }
