@@ -54,7 +54,7 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
-            'descripcion' => "2022/23 Club Atletico Independiente Titular",
+            'descripcion' => "2022/23 Independiente Titular",
             'precio' => 19999,
             'talles' => "S M X XL",
             'imagen' => "https://www.diablosoy.com/ccstore/v1/images/?source=/file/v8766860614183822823/products/camiseta%20CAI.png",
@@ -64,7 +64,7 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
-            'descripcion' => "2022/23 Club Atletico Independiente Suplente",
+            'descripcion' => "2022/23 Independiente Suplente",
             'precio' => 19999,
             'talles' => "S M X XL",
             'imagen' => "https://www.diablosoy.com/ccstore/v1/images/?source=/file/v8119319890536143959/products/771567%2001_1.png",
@@ -94,7 +94,7 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
-            'descripcion' => "2022/23 Club Atletico San Lorenzo Titular",
+            'descripcion' => "2022/23 San Lorenzo Titular",
             'precio' => 19999,
             'talles' => "S M X XL",
             'imagen' => "https://www.soycuervo.com/ccstore/v1/images/?source=/file/v6106389445411585539/products/CAMISETA%20CASLA%202023%20BRUBANK.jpg",
@@ -104,7 +104,7 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
-            'descripcion' => "2022/23 Club Atletico San Lorenzo Suplente",
+            'descripcion' => "2022/23 San Lorenzo Suplente",
             'precio' => 19999,
             'talles' => "S M X XL",
             'imagen' => "https://www.soycuervo.com/ccstore/v1/images/?source=/file/v4164183528857031988/products/9891_100_1.jpg",

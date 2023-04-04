@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('pedido', function (Blueprint $table) {
             $table->id('id_pedido');
-            $table->string('mail_cliente');
-            $table->foreign('mail_cliente')->references('email')->on('cliente');
-            $table->timestamp('fecha');
+            $table->unsignedBigInteger('id_cliente');
+            $table->foreign('id_cliente')->references('id_cliente')->on('cliente');
+            $table->date('fecha');
             $table->timestamps();
-            //$table->restrictOnDelete();
-            //$table->cascadeOnUpdate();
-
         });
     }
 

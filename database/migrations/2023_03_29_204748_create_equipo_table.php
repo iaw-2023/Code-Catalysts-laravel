@@ -14,10 +14,6 @@ return new class extends Migration
         Schema::create('equipo', function (Blueprint $table) {
             $table->id('id_equipo');
             $table->string('nombre');
-           /* $table->foreignId('id_liga')
-                ->constrained()
-                ->onUpdate('cascade')
-                ->onDelete('restrict');*/
             $table->unsignedBigInteger('id_liga');
             $table->foreign('id_liga')->references('id_liga')->on('liga');
             $table->timestamps();

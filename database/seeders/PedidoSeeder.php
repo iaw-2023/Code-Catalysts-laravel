@@ -14,28 +14,28 @@ class PedidoSeeder extends Seeder
     public function run(): void
     {
         DB::table('pedido')->insert([
-            'mail_cliente' => "cliente1@gmail.com",
+            'id_cliente' => 1,
             'fecha' => now(),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         DB::table('pedido')->insert([
-            'mail_cliente' => "cliente2@gmail.com",
+            'id_cliente' => 4,
             'fecha' => now(),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
         
         DB::table('pedido')->insert([
-            'mail_cliente' => "cliente2@gmail.com",
+            'id_cliente' => 3,
             'fecha' => now(),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         DB::table('pedido')->insert([
-            'mail_cliente' => "cliente8@gmail.com",
+            'id_cliente' => 7,
             'fecha' => now(),
             'created_at' => now(),
             'updated_at' => now(),
