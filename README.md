@@ -94,7 +94,7 @@ Francesa y Alemana.
 
 ### Diagrama Entidad-Relación
 
-<p align="center"><img src="https://ibb.co/ydPLFc5"><img src="https://i.ibb.co/5G4qhgv/Diagrama-Entidad-Relacion.jpg" border="0"></p>
+<p align="center"><img src="https://i.ibb.co/5G4qhgv/Diagrama-Entidad-Relacion.jpg" border="0"></p>
 
 #### Proyecto Framework PHP - Laravel
 
