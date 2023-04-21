@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('imagen');
             $table->unsignedBigInteger('id_equipo');
             $table->foreign('id_equipo')->references('id_equipo')->on('equipo');
+            $table->string('estado');
             $table->timestamps();
         });
     }
