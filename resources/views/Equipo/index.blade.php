@@ -11,15 +11,15 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Agregar</th>
+                    <th scope="col"> Agregar </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($ligas as $liga)
+                @foreach ($equipos as $equipo)
                 <tr>
-                    <td>{{$liga->id_liga}}</td>
-                    <td>{{$liga->nombre}}</td>
-                    <td> <button type="button" class="btn btn-outline-primary">Agregar Equipo</button> </td>
+                    <td>{{$equipo->id_equipo}}</td>
+                    <td>{{$equipo->nombre}}</td>
+                    <td> <button type="button" class="btn btn-outline-primary">Agregar Camiseta</button> </td>
                 </tr>
                 @endforeach
             </tbody>

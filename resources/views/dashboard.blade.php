@@ -11,7 +11,7 @@
         <a href="camisetas"> <button type="button" class="btn btn-outline-primary">Camisetas</button> </a>
         <a href="ligas"> <button type="button" class="btn btn-outline-primary">Ligas</button> </a>
         <button type="button" class="btn btn-outline-primary">Clientes</button>
-        <button type="button" class="btn btn-outline-primary">Equipos</button>
+        <a href="equipos"> <button type="button" class="btn btn-outline-primary">Equipos</button> </a>
         <button type="button" class="btn btn-outline-primary">Pedidos</button>
     </body>
 </html>
