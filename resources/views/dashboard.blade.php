@@ -12,7 +12,6 @@
         <button type="button" class="btn btn-outline-primary">Ligas</button>
         <button type="button" class="btn btn-outline-primary">Clientes</button>
         <button type="button" class="btn btn-outline-primary">Equipos</button>
-        <button type="button" class="btn btn-outline-primary">Pedidos</button>
-
+        <button type="button" class="btn btn-outline-primary">Pedidos</button>php aritsan make:controller NombreController --resource
     </body>
 </html>
