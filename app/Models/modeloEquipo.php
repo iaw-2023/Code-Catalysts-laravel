@@ -11,6 +11,7 @@ class modeloEquipo extends Model
 {
     use HasFactory;
     protected $table = 'equipo'; 
+    protected $primaryKey = 'id_equipo';
 
     public function Liga(){
         return $this->belongsTo(modeloLiga::class,'id_liga');

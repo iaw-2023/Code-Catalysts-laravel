@@ -21,7 +21,7 @@ class LigaController extends Controller
      */
     public function create()
     {
-        //
+        return view('Liga.create');
     }
 
     /**
@@ -29,7 +29,12 @@ class LigaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $liga = new modeloLiga();
+        $liga->nombre = $request->get('nombre');
+        $liga->created_at = now();
+        $liga->updated_at = now();
+        $liga->save();
+        return redirect('/ligas');
     }
 
     /**

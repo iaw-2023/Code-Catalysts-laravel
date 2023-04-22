@@ -6,24 +6,13 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
-        <a href="ligas/create"> <button type="button" class="btn btn-outline-primary">Crear liga</button> </a>
-        <table class="table table-striped table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Agregar</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($ligas as $liga)
-                <tr>
-                    <td>{{$liga->id_liga}}</td>
-                    <td>{{$liga->nombre}}</td>
-                    <td> <button type="button" class="btn btn-outline-primary">Agregar Equipo</button> </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <form action="{{route('ligas.store')}}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre">
+            </div>
+            <button type="submit" class="btn btn-primary">Crear</button>
+        </form>
     </body>
 </html>

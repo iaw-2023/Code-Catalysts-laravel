@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\modeloEquipo;
+use App\Models\modeloLiga;
 
 class EquipoController extends Controller
 {
@@ -21,7 +22,8 @@ class EquipoController extends Controller
      */
     public function create()
     {
-        //
+        $ligas = modeloLiga::all();
+        return view('Equipo.create')->with('ligas',$ligas);
     }
 
     /**
@@ -29,7 +31,14 @@ class EquipoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $liga = modeloLiga::where('nombre', $request->get('liga'))->first();
+        $equipo = new modeloEquipo();
+        $equipo->nombre = $request->get('nombre');
+        $equipo->id_liga = $liga->id_liga;
+        $equipo->created_at = now();
+        $equipo->updated_at = now();
+        $equipo->save();
+        return redirect('/equipos');
     }
 
     /**
