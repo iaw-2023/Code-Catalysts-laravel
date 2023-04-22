@@ -28,7 +28,7 @@
                 <label for="">Equipo</label>
                 <select name ="equipo" id="equipo">
                     @foreach ($equipos as $equipo)
-                        <option name ="equipo" id="equipo" value={{$equipo->nombre}} > {{$equipo->nombre}} </option>
+                        <option name ="equipo" id="equipo"> {{$equipo->nombre}} </option>
                     @endforeach
                 </select>
             </div>
