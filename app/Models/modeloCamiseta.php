@@ -11,6 +11,7 @@ class modeloCamiseta extends Model
 {
     use HasFactory;
     protected $table = 'camiseta'; 
+    protected $primaryKey = 'id_camiseta';
 
     //la clave que aparece camiseta
     public function equipo(){

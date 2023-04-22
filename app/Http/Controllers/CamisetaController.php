@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\modeloCamiseta;
+use App\Models\modeloEquipo;
 
 class CamisetaController extends Controller
 {
@@ -21,7 +22,8 @@ class CamisetaController extends Controller
      */
     public function create()
     {
-        //
+        $equipos = modeloEquipo::all();
+        return view('Camiseta.create')->with('equipos',$equipos);
     }
 
     /**
@@ -29,7 +31,18 @@ class CamisetaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $equipo = modeloEquipo::where('nombre', $request->get('equipo'))->first();
+        $camiseta = new modeloCamiseta();
+        $camiseta->descripcion = $request->get('descripcion');
+        $camiseta->precio = $request->get('precio');
+        $camiseta->talles = $request->get('talles');
+        $camiseta->imagen = $request->get('imagen');
+        $camiseta->id_equipo = $equipo->id_equipo;
+        $camiseta->estado = $request->get('estado');
+        $camiseta->created_at = now();
+        $camiseta->updated_at = now();
+        $camiseta->save();
+        return redirect('/camisetas');
     }
 
     /**
