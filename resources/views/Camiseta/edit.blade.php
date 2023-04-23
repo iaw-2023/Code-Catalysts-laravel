@@ -27,7 +27,11 @@
             </div>
             <div class="form-group">
                 <label for="">Equipo</label>
-                
+                <select name ="equipo" id="equipo">
+                    @foreach ($equipos as $equipo)
+                        <option name ="equipo" id="equipo"> {{$equipo->nombre}} </option>
+                    @endforeach
+                </select>
             </div>
             
             <div class="form-group">

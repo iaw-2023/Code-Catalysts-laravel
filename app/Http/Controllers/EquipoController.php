@@ -54,8 +54,9 @@ class EquipoController extends Controller
      */
     public function edit(string $id)
     {
+        $ligas = modeloLiga::all();
         $equipo = modeloEquipo::find($id);
-        return view('Equipo.edit')->with('equipo',$equipo);
+        return view('Equipo.edit')->with('equipo',$equipo)->with('ligas',$ligas);
     }
 
     /**
@@ -63,10 +64,10 @@ class EquipoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //$liga = modeloLiga::where('nombre', $request->get('liga'))->first();
+        $liga = modeloLiga::where('nombre', $request->get('liga'))->first();
         $equipo = modeloEquipo::find($id);
         $equipo->nombre = $request->get('nombre');
-        //$equipo->id_liga = $liga->id_liga;
+        $equipo->id_liga = $liga->id_liga;
         $equipo->created_at = now();
         $equipo->updated_at = now();
         $equipo->save();

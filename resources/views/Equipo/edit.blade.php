@@ -15,7 +15,11 @@
             </div>
             <div class="form-group">
                 <label for="">Liga</label>
-                
+                <select name ="liga" id="liga">
+                    @foreach ($ligas as $liga)
+                        <option name ="liga" id="liga"> {{$liga->nombre}} </option>
+                    @endforeach
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Actualizar</button>
         </form>
