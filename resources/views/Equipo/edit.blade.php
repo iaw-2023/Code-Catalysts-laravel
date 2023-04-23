@@ -6,24 +6,18 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
-        <a href="equipos/create"> <button type="button" class="btn btn-outline-primary">Crear equipo</button> </a>
-        <table class="table table-striped table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col"> </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($equipos as $equipo)
-                <tr>
-                    <td>{{$equipo->id_equipo}}</td>
-                    <td>{{$equipo->nombre}}</td>
-                    <td> <a href="equipos/{{$equipo->id_equipo}}/edit" class="btn btn-outline-primary"> Editar </a> </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <form action="{{route('equipos.update',$equipo->id_equipo)}}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="form-group">
+                <label for="">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{$equipo->nombre}}">
+            </div>
+            <div class="form-group">
+                <label for="">Liga</label>
+                
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
     </body>
 </html>
