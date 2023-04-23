@@ -16,6 +16,7 @@
                     <th scope="col">Talles</th>
                     <th scope="col">Imagen</th>
                     <th scope="col">Estado</th>
+                    <th scope="col"> </th>
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +28,7 @@
                 <td>{{$camiseta->talles}}</td>
                 <td><img src={{$camiseta->imagen}} width="100px"></td>
                 <td>{{$camiseta->estado}}</td>
-
+                <td> <a href="camisetas/{{$camiseta->id_camiseta}}/edit" class="btn btn-outline-primary"> Editar </a> </td>
                 </tr>
                 @endforeach
             </tbody>

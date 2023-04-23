@@ -58,7 +58,8 @@ class CamisetaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $camiseta = modeloCamiseta::find($id);
+        return view('Camiseta.edit')->with('camiseta',$camiseta);
     }
 
     /**
@@ -66,7 +67,18 @@ class CamisetaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //$equipo = modeloEquipo::where('nombre', $request->get('equipo'))->first();
+        $camiseta = modeloCamiseta::find($id);
+        $camiseta->descripcion = $request->get('descripcion');
+        $camiseta->precio = $request->get('precio');
+        $camiseta->talles = $request->get('talles');
+        $camiseta->imagen = $request->get('imagen');
+        $camiseta->id_equipo = 1;//$equipo->id_equipo;
+        $camiseta->estado = $request->get('estado');
+        $camiseta->created_at = now();
+        $camiseta->updated_at = now();
+        $camiseta->save();
+        return redirect('/camisetas');
     }
 
     /**
