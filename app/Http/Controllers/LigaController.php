@@ -42,7 +42,7 @@ class LigaController extends Controller
      */
     public function show(string $id)
     {
-        //
+       //
     }
 
     /**
@@ -50,7 +50,8 @@ class LigaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $liga = modeloLiga::find($id);
+        return view('Liga.edit')->with('liga',$liga);
     }
 
     /**
@@ -58,7 +59,12 @@ class LigaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $liga = modeloLiga::find($id);
+        $liga->nombre = $request->get('nombre');
+        $liga->created_at = now();
+        $liga->updated_at = now();
+        $liga->save();
+        return redirect('/ligas');
     }
 
     /**

@@ -10,7 +10,8 @@ use app\Models\modeloCamiseta;
 class modeloDetalles extends Model
 {
     use HasFactory;
-    protected $table = 'detalle_pedido'; 
+    protected $table = 'detalle_pedido';
+    protected $primaryKey = 'id_detalle_pedido'; 
 
     //la clave que aparece camiseta
     public function pedido(){

@@ -6,24 +6,15 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
-        <a href="ligas/create"> <button type="button" class="btn btn-outline-primary">Crear liga</button> </a>
-        <table class="table table-striped table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col"> </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($ligas as $liga)
-                <tr>
-                    <td>{{$liga->id_liga}}</td>
-                    <td>{{$liga->nombre}}</td>
-                    <td> <a href="ligas/{{$liga->id_liga}}/edit" class="btn btn-outline-primary"> Editar </a> </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+   
+        <form action="{{route('ligas.update',$liga->id_liga)}}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="form-group">
+                <label for="">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{$liga->nombre}}">
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
     </body>
 </html>

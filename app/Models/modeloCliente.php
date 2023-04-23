@@ -10,6 +10,7 @@ class modeloCliente extends Model
 {
     use HasFactory;
     protected $table = 'cliente'; 
+    protected $primaryKey = 'id_cliente';
 
     //la clave foranea, la que aparece en pedido
     public function pedidos(){
