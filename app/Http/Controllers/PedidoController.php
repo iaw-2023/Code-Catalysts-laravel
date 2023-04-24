@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\modeloDetalles;
 use App\Models\modeloCamiseta;
+use Illuminate\Support\Facades\DB;
 
 class PedidoController extends Controller
 {
@@ -13,8 +14,13 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        /*$pedidos = modeloDetalles::all()->join('camiseta','id_camiseta','=','camiseta.id_camiseta');
-        return view('Pedido.index')->with('pedidos',$pedidos);*/
+        $pedidos = DB::table('pedido')
+            ->join('detalle_pedido', 'pedido.id_pedido', '=', 'detalle_pedido.id_pedido')
+            ->join('camiseta', 'camiseta.id_camiseta', '=', 'detalle_pedido.id_camiseta')
+            ->join('cliente', 'cliente.id_cliente', '=', 'pedido.id_cliente')
+            ->select('pedido.*', 'detalle_pedido.*', 'camiseta.*', 'cliente.*')
+            ->get();
+            return view('Pedido.index')->with('pedidos',$pedidos);
     }
 
     /**
