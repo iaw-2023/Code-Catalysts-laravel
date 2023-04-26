@@ -27,6 +27,7 @@ Route::resource('ligas','App\Http\Controllers\LigaController');
 Route::resource('equipos','App\Http\Controllers\EquipoController');
 Route::resource('clientes','App\Http\Controllers\ClienteController');
 Route::resource('pedidos','App\Http\Controllers\PedidoController');
+Route::resource('reportes','App\Http\Controllers\ReporteController');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

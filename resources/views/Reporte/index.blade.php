@@ -8,11 +8,12 @@
     </head>
     <body>
     
-        <a href="camisetas"> <button type="button" class="btn btn-outline-primary">Camisetas</button> </a>
-        <a href="ligas"> <button type="button" class="btn btn-outline-primary">Ligas</button> </a>
-        <a href="clientes"> <button type="button" class="btn btn-outline-primary">Clientes</button> </a>
-        <a href="equipos"> <button type="button" class="btn btn-outline-primary">Equipos</button> </a>
-        <a href="pedidos"> <button type="button" class="btn btn-outline-primary">Pedidos</button> </a>
-        <a href="reportes"> <button type="button" class="btn btn-outline-primary">Reportes</button> </a>
+        <a href="reportes/pedidos-por-tiempo"> <button type="button" class="btn btn-outline-primary">Pedidos por tiempo</button> </a>
+        <a href="reportes/pedidos-por-cliente"> <button type="button" class="btn btn-outline-primary">Pedidos por cliente</button> </a>
+        <a href="reportes/pedidos-por-camiseta"> <button type="button" class="btn btn-outline-primary">Pedidos por camiseta</button> </a>
+        <a href="reportes/pedidos-por-equipo"> <button type="button" class="btn btn-outline-primary">Pedidos por equipo</button> </a>
+        <a href="reportes/pedidos-por-liga"> <button type="button" class="btn btn-outline-primary">Pedidos por liga</button> </a>
+        <a href="reportes/camisetas-por-equipo"> <button type="button" class="btn btn-outline-primary">Camisetas por equipo</button> </a>
+        <a href="reportes/camisetas-por-liga"> <button type="button" class="btn btn-outline-primary">Camisetas por liga</button> </a>
     </body>
 </html>

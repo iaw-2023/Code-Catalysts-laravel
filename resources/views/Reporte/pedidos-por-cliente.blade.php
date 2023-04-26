@@ -7,12 +7,18 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
-    
-        <a href="camisetas"> <button type="button" class="btn btn-outline-primary">Camisetas</button> </a>
-        <a href="ligas"> <button type="button" class="btn btn-outline-primary">Ligas</button> </a>
-        <a href="clientes"> <button type="button" class="btn btn-outline-primary">Clientes</button> </a>
-        <a href="equipos"> <button type="button" class="btn btn-outline-primary">Equipos</button> </a>
-        <a href="pedidos"> <button type="button" class="btn btn-outline-primary">Pedidos</button> </a>
-        <a href="reportes"> <button type="button" class="btn btn-outline-primary">Reportes</button> </a>
+    <form action="" method="POST">
+            @csrf
+            <h2>Historial de pedidos por cliente</h2>
+            <div class="form-group">
+                <label for="">Seleccione un cliente</label>
+                <select name ="cliente" id="cliente">
+                    @foreach ($clientes as $cliente)
+                        <option name ="cliente" id="cliente"> {{$cliente->email}} </option>
+                    @endforeach
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Consultar</button>
+        </form>
     </body>
 </html>
