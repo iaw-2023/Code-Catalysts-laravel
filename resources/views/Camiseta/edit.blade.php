@@ -6,6 +6,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
+        <x-nav></x-nav>
         <form action="{{route('camisetas.update',$camiseta->id_camiseta)}}" method="POST">
             @csrf
             @method('PUT')

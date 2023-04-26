@@ -7,7 +7,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
-    
+        <x-nav></x-nav>
         <a href="reportes/pedidos-por-tiempo"> <button type="button" class="btn btn-outline-primary">Pedidos por tiempo</button> </a>
         <a href="reportes/pedidos-por-cliente"> <button type="button" class="btn btn-outline-primary">Pedidos por cliente</button> </a>
         <a href="reportes/pedidos-por-camiseta"> <button type="button" class="btn btn-outline-primary">Pedidos por camiseta</button> </a>
