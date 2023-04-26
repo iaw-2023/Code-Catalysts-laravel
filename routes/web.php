@@ -22,12 +22,12 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('camisetas','App\Http\Controllers\CamisetaController');
-Route::resource('ligas','App\Http\Controllers\LigaController');
-Route::resource('equipos','App\Http\Controllers\EquipoController');
-Route::resource('clientes','App\Http\Controllers\ClienteController');
-Route::resource('pedidos','App\Http\Controllers\PedidoController');
-Route::resource('reportes','App\Http\Controllers\ReporteController');
+Route::resource('camisetas','App\Http\Controllers\CamisetaController')->middleware(['auth', 'verified']);
+Route::resource('ligas','App\Http\Controllers\LigaController')->middleware(['auth', 'verified']);;
+Route::resource('equipos','App\Http\Controllers\EquipoController')->middleware(['auth', 'verified']);;
+Route::resource('clientes','App\Http\Controllers\ClienteController')->middleware(['auth', 'verified']);;
+Route::resource('pedidos','App\Http\Controllers\PedidoController')->middleware(['auth', 'verified']);;
+Route::resource('reportes','App\Http\Controllers\ReporteController')->middleware(['auth', 'verified']);;
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
