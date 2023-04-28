@@ -8,10 +8,10 @@
     </head>
     <body>
         <x-nav></x-nav>
+        <h2>Ligas</h2>
         <table class="table table-striped table-dark">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
                     <th scope="col"> </th>
                 </tr>
@@ -19,7 +19,6 @@
             <tbody>
                 @foreach ($ligas as $liga)
                 <tr>
-                    <td>{{$liga->id_liga}}</td>
                     <td>{{$liga->nombre}}</td>
                     <td> <a href="ligas/{{$liga->id_liga}}/edit" class="btn btn-outline-primary"> Editar </a> </td>
                 </tr>

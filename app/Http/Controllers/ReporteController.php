@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\modeloCliente;
+use App\Models\modeloCamiseta;
+use App\Models\modeloEquipo;
+use App\Models\modeloLiga;
 
 class ReporteController extends Controller
 {
@@ -45,19 +48,24 @@ class ReporteController extends Controller
                 return view('Reporte.pedidos-por-cliente')->with('clientes',$clientes);
                 break; 
             case 'pedidos-por-camiseta':
-                return view('Reporte.pedidos-por-camiseta');
+                $camisetas = modeloCamiseta::all();
+                return view('Reporte.pedidos-por-camiseta')->with('camisetas',$camisetas);
                 break; 
             case 'pedidos-por-equipo':
-                return view('Reporte.pedidos-por-equipo');
+                $equipos = modeloEquipo::all();
+                return view('Reporte.pedidos-por-equipo')->with('equipos',$equipos);
                 break; 
             case 'pedidos-por-liga':
-                return view('Reporte.pedidos-por-liga');
+                $ligas = modeloLiga::all();
+                return view('Reporte.pedidos-por-liga')->with('ligas',$ligas);
                 break; 
             case 'camisetas-por-equipo':
-                return view('Reporte.camisetas-por-equipo');
+                $equipos = modeloEquipo::all();
+                return view('Reporte.camisetas-por-equipo')->with('equipos',$equipos);
                 break; 
             case 'camisetas-por-liga':
-                return view('Reporte.camisetas-por-liga');
+                $ligas = modeloLiga::all();
+                return view('Reporte.camisetas-por-liga')->with('ligas',$ligas);
                 break; 
         }
     }
@@ -86,7 +94,7 @@ class ReporteController extends Controller
         //
     }
 
-    public function pedidosPorTiempo(Request $request) {
+    /*public function pedidosPorTiempo(Request $request) {
         return "AAAA";
-    }
+    }*/
 }

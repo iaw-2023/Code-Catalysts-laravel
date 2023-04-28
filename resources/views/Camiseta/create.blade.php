@@ -8,6 +8,7 @@
     </head>
     <body>
         <x-nav></x-nav>
+        <h2>Crear camiseta</h2>
         <form action="{{route('camisetas.store')}}" method="POST">
             @csrf
             <div class="form-group">

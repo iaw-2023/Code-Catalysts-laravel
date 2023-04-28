@@ -8,6 +8,7 @@
     </head>
     <body>
         <x-nav></x-nav>
+        <h2>Pedidos</h2>
         <table class="table table-striped table-dark">
             <thead>
                 <tr>

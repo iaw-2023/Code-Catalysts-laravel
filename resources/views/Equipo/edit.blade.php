@@ -8,6 +8,7 @@
     </head>
     <body>
         <x-nav></x-nav>
+        <h2>Editar equipo</h2>
         <form action="{{route('equipos.update',$equipo->id_equipo)}}" method="POST">
             @csrf
             @method('PUT')

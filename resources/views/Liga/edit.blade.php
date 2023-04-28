@@ -8,6 +8,7 @@
     </head>
     <body>
         <x-nav></x-nav>
+        <h2>Editar liga</h2>
         <form action="{{route('ligas.update',$liga->id_liga)}}" method="POST">
             @csrf
             @method('PUT')

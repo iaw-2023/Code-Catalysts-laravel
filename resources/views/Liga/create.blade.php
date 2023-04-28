@@ -8,6 +8,7 @@
     </head>
     <body>
         <x-nav></x-nav>
+        <h2>Crear liga</h2>
         <form action="{{route('ligas.store')}}" method="POST">
             @csrf
             <div class="form-group">

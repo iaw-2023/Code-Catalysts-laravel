@@ -8,9 +8,9 @@
     </head>
     <body>
     <x-nav></x-nav>
+    <h2>Historial de pedidos por periodo de tiempo</h2>
     <form action="reportes/create" method="POST">
             @csrf
-            <h2>Historial de pedidos por periodo de tiempo</h2>
             <div class="form-group">
                 <label for="">Fecha de inicio</label>
                 <input type="date" class="form-control" id="inicio" name="inicio">

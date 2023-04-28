@@ -8,6 +8,7 @@
     </head>
     <body>
         <x-nav></x-nav>
+        <h2>Crear equipo</h2>
         <form action="{{route('equipos.store')}}" method="POST">
             @csrf
             <div class="form-group">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\modeloEquipo;
 use App\Models\modeloLiga;
+use Illuminate\Support\Facades\DB;
 
 class EquipoController extends Controller
 {
@@ -13,7 +14,11 @@ class EquipoController extends Controller
      */
     public function index()
     {
-        $equipos = modeloEquipo::all();
+        //$equipos = modeloEquipo::all();
+        $equipos = DB::table('equipo')
+            ->join('liga', 'equipo.id_liga', '=', 'liga.id_liga')
+            ->select('equipo.*', 'liga.nombre AS liga')
+            ->get();
         return view('Equipo.index')->with('equipos',$equipos);
     }
 

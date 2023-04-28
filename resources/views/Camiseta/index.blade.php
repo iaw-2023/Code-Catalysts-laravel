@@ -8,10 +8,10 @@
     </head>
     <body>
         <x-nav></x-nav>
+        <h2>Camisetas</h2>
         <table class="table table-striped table-dark">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Talles</th>
@@ -23,13 +23,12 @@
             <tbody>
                 @foreach ($camisetas as $camiseta)
                 <tr>
-                <td>{{$camiseta->id_camiseta}}</td>
-                <td>{{$camiseta->descripcion}}</td>
-                <td>{{$camiseta->precio}}</td>
-                <td>{{$camiseta->talles}}</td>
-                <td><img src={{$camiseta->imagen}} width="100px"></td>
-                <td>{{$camiseta->estado}}</td>
-                <td> <a href="camisetas/{{$camiseta->id_camiseta}}/edit" class="btn btn-outline-primary"> Editar </a> </td>
+                    <td>{{$camiseta->descripcion}}</td>
+                    <td>{{$camiseta->precio}}</td>
+                    <td>{{$camiseta->talles}}</td>
+                    <td><img src={{$camiseta->imagen}} width="100px"></td>
+                    <td>{{$camiseta->estado}}</td>
+                    <td> <a href="camisetas/{{$camiseta->id_camiseta}}/edit" class="btn btn-outline-primary"> Editar </a> </td>
                 </tr>
                 @endforeach
             </tbody>

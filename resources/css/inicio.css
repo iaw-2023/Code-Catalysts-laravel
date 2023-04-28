@@ -2,11 +2,6 @@ body{
  background-color: #111827;   
 }
 
-.btn{
-    color: lightblue;
-    border-color:lightblue;
-}
-
 .formularioNav{
     margin: 0px;
     cursor: pointer;
@@ -14,4 +9,10 @@ body{
 
 form{
     color: white;
+    margin: 15px;
+}
+
+h2 {
+    color: white;
+    margin: 15px;
 }

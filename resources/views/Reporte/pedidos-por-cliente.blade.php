@@ -8,9 +8,9 @@
     </head>
     <body>
     <x-nav></x-nav>
+    <h2>Historial de pedidos por cliente</h2>
     <form action="" method="POST">
             @csrf
-            <h2>Historial de pedidos por cliente</h2>
             <div class="form-group">
                 <label for="">Seleccione un cliente</label>
                 <select name ="cliente" id="cliente">
