@@ -9,7 +9,7 @@
     <body>
     <x-nav></x-nav>
     <h2>Historial de pedidos por periodo de tiempo</h2>
-    <form action="reportes/create" method="POST">
+    <form action="{{route('pedidoPorTiempo.index')}}" method="GET">
             @csrf
             <div class="form-group">
                 <label for="">Fecha de inicio</label>

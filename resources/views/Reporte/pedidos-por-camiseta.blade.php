@@ -9,7 +9,7 @@
     <body>
     <x-nav></x-nav>
     <h2>Historial de pedidos por camiseta</h2>
-    <form action="" method="POST">
+    <form action="{{route('pedidoPorCamiseta.index')}}" method="GET">
             @csrf
             <div class="form-group">
                 <label for="">Seleccione una camiseta</label>

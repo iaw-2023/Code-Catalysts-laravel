@@ -23,11 +23,17 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('camisetas','App\Http\Controllers\CamisetaController')->middleware(['auth', 'verified']);
-Route::resource('ligas','App\Http\Controllers\LigaController')->middleware(['auth', 'verified']);;
-Route::resource('equipos','App\Http\Controllers\EquipoController')->middleware(['auth', 'verified']);;
-Route::resource('clientes','App\Http\Controllers\ClienteController')->middleware(['auth', 'verified']);;
-Route::resource('pedidos','App\Http\Controllers\PedidoController')->middleware(['auth', 'verified']);;
-Route::resource('reportes','App\Http\Controllers\ReporteController')->middleware(['auth', 'verified']);;
+Route::resource('ligas','App\Http\Controllers\LigaController')->middleware(['auth', 'verified']);
+Route::resource('equipos','App\Http\Controllers\EquipoController')->middleware(['auth', 'verified']);
+Route::resource('clientes','App\Http\Controllers\ClienteController')->middleware(['auth', 'verified']);
+Route::resource('pedidos','App\Http\Controllers\PedidoController')->middleware(['auth', 'verified']);
+Route::resource('reportes','App\Http\Controllers\ReporteController')->middleware(['auth', 'verified']);
+Route::resource('camisetaPorEquipo','App\Http\Controllers\CamisetasPorEquipoController')->middleware(['auth', 'verified']);
+Route::resource('pedidoPorCliente','App\Http\Controllers\PedidosPorClienteController')->middleware(['auth', 'verified']);
+Route::resource('pedidoPorCamiseta','App\Http\Controllers\PedidosPorCamisetaController')->middleware(['auth', 'verified']);
+Route::resource('pedidoPorLiga','App\Http\Controllers\PedidosPorLigaController')->middleware(['auth', 'verified']);
+Route::resource('pedidoPorEquipo','App\Http\Controllers\PedidosPorEquipoController')->middleware(['auth', 'verified']);
+Route::resource('pedidoPorTiempo','App\Http\Controllers\PedidosPorTiempoController')->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

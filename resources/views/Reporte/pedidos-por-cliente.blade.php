@@ -9,7 +9,7 @@
     <body>
     <x-nav></x-nav>
     <h2>Historial de pedidos por cliente</h2>
-    <form action="" method="POST">
+    <form action="{{route('pedidoPorCliente.index')}}" method="GET">
             @csrf
             <div class="form-group">
                 <label for="">Seleccione un cliente</label>
