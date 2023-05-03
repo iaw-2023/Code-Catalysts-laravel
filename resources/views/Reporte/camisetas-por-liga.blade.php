@@ -9,7 +9,7 @@
     <body>
     <x-nav></x-nav>
     <h2>Camisetas por liga</h2>
-    <form action="{{route('pedidoPorLiga.index')}}" method="GET">
+    <form action="{{route('camisetaPorLiga.index')}}" method="GET">
             @csrf
             <div class="form-group">
                 <label for="">Seleccione una liga</label>

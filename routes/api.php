@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('camisetas','App\Http\Controllers\ApiController@camisetas');
+Route::get('equipos','App\Http\Controllers\ApiController@equipos');
+Route::get('ligas','App\Http\Controllers\ApiController@ligas');
+Route::get('camisetas/equipo/{id}','App\Http\Controllers\ApiController@camisetasPorEquipo');
+Route::get('camisetas/liga/{id}','App\Http\Controllers\ApiController@camisetasPorLiga');

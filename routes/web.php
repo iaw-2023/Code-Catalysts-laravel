@@ -29,6 +29,7 @@ Route::resource('clientes','App\Http\Controllers\ClienteController')->middleware
 Route::resource('pedidos','App\Http\Controllers\PedidoController')->middleware(['auth', 'verified']);
 Route::resource('reportes','App\Http\Controllers\ReporteController')->middleware(['auth', 'verified']);
 Route::resource('camisetaPorEquipo','App\Http\Controllers\CamisetasPorEquipoController')->middleware(['auth', 'verified']);
+Route::resource('camisetaPorLiga','App\Http\Controllers\CamisetasPorLigaController')->middleware(['auth', 'verified']);
 Route::resource('pedidoPorCliente','App\Http\Controllers\PedidosPorClienteController')->middleware(['auth', 'verified']);
 Route::resource('pedidoPorCamiseta','App\Http\Controllers\PedidosPorCamisetaController')->middleware(['auth', 'verified']);
 Route::resource('pedidoPorLiga','App\Http\Controllers\PedidosPorLigaController')->middleware(['auth', 'verified']);

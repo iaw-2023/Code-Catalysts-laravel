@@ -14,7 +14,7 @@ class CamisetasPorLigaController extends Controller
     {
         $liga = request()->get('liga');
         $reportes = DB::table('liga')
-            ->join('liga', 'liga.id_liga', '=', 'equipo.id_liga')
+            ->join('equipo', 'liga.id_liga', '=', 'equipo.id_liga')
             ->join('camiseta', 'equipo.id_equipo', '=', 'camiseta.id_equipo')
             ->where('liga.nombre',$liga)
             ->get();
