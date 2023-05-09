@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\modeloCliente;
+use App\Models\modeloCamiseta;
+use App\Models\modeloEquipo;
+use App\Models\modeloLiga;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +32,41 @@ Route::resource('equipos','App\Http\Controllers\EquipoController')->middleware([
 Route::resource('clientes','App\Http\Controllers\ClienteController')->middleware(['auth', 'verified']);
 Route::resource('pedidos','App\Http\Controllers\PedidoController')->middleware(['auth', 'verified']);
 Route::resource('reportes','App\Http\Controllers\ReporteController')->middleware(['auth', 'verified']);
+
+Route::get('/reporte/pedidos-por-tiempo', function () {
+    return view('Reporte.pedidos-por-tiempo');
+})->middleware(['auth', 'verified']);
+
+Route::get('/reporte/pedidos-por-cliente', function () {
+    $clientes = modeloCliente::all();
+    return view('Reporte.pedidos-por-cliente')->with('clientes',$clientes);
+})->middleware(['auth', 'verified']);
+
+Route::get('/reporte/pedidos-por-camiseta', function () {
+    $camisetas = modeloCamiseta::all();
+    return view('Reporte.pedidos-por-camiseta')->with('camisetas',$camisetas);
+})->middleware(['auth', 'verified']);
+
+Route::get('/reporte/pedidos-por-equipo', function () {
+    $equipos = modeloEquipo::all();
+    return view('Reporte.pedidos-por-equipo')->with('equipos',$equipos);
+})->middleware(['auth', 'verified']);
+
+Route::get('/reporte/pedidos-por-liga', function () {
+    $ligas = modeloLiga::all();
+    return view('Reporte.pedidos-por-liga')->with('ligas',$ligas);
+})->middleware(['auth', 'verified']);
+
+Route::get('/reporte/camisetas-por-equipo', function () {
+    $equipos = modeloEquipo::all();
+    return view('Reporte.camisetas-por-equipo')->with('equipos',$equipos);
+})->middleware(['auth', 'verified']);
+
+Route::get('/reporte/camisetas-por-liga', function () {
+    $ligas = modeloLiga::all();
+    return view('Reporte.camisetas-por-liga')->with('ligas',$ligas);
+})->middleware(['auth', 'verified']);
+
 Route::resource('camisetaPorEquipo','App\Http\Controllers\CamisetasPorEquipoController')->middleware(['auth', 'verified']);
 Route::resource('camisetaPorLiga','App\Http\Controllers\CamisetasPorLigaController')->middleware(['auth', 'verified']);
 Route::resource('pedidoPorCliente','App\Http\Controllers\PedidosPorClienteController')->middleware(['auth', 'verified']);

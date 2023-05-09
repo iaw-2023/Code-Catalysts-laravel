@@ -9,6 +9,7 @@ class modeloPedido extends Model
 {
     use HasFactory;
     protected $table = 'pedido'; 
+    protected $primaryKey = 'id_pedido';
 
     //la clave que aparece camiseta
     public function cliente(){

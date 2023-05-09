@@ -60,13 +60,13 @@
                     Reportes
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ url('/') }}/reportes/pedidos-por-tiempo"> Pedidos por tiempo </a> 
-                        <a class="dropdown-item" href="{{ url('/') }}/reportes/pedidos-por-cliente"> Pedidos por cliente </a> 
-                        <a class="dropdown-item" href="{{ url('/') }}/reportes/pedidos-por-camiseta"> Pedidos por camiseta </a> 
-                        <a class="dropdown-item" href="{{ url('/') }}/reportes/pedidos-por-equipo"> Pedidos por equipo </a> 
-                        <a class="dropdown-item" href="{{ url('/') }}/reportes/pedidos-por-liga"> Pedidos por liga </a> 
-                        <a class="dropdown-item" href="{{ url('/') }}/reportes/camisetas-por-equipo"> Camisetas por equipo </a> 
-                        <a class="dropdown-item" href="{{ url('/') }}/reportes/camisetas-por-liga"> Camisetas por liga </a> 
+                        <a class="dropdown-item" href="{{ url('/') }}/reporte/pedidos-por-tiempo"> Pedidos por tiempo </a> 
+                        <a class="dropdown-item" href="{{ url('/') }}/reporte/pedidos-por-cliente"> Pedidos por cliente </a> 
+                        <a class="dropdown-item" href="{{ url('/') }}/reporte/pedidos-por-camiseta"> Pedidos por camiseta </a> 
+                        <a class="dropdown-item" href="{{ url('/') }}/reporte/pedidos-por-equipo"> Pedidos por equipo </a> 
+                        <a class="dropdown-item" href="{{ url('/') }}/reporte/pedidos-por-liga"> Pedidos por liga </a> 
+                        <a class="dropdown-item" href="{{ url('/') }}/reporte/camisetas-por-equipo"> Camisetas por equipo </a> 
+                        <a class="dropdown-item" href="{{ url('/') }}/reporte/camisetas-por-liga"> Camisetas por liga </a> 
                     </div>
                 </li>
                 

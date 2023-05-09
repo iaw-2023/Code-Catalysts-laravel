@@ -23,7 +23,7 @@ class ReporteController extends Controller
      */
     public function create()
     {
-        return "BBB";
+        //
     }
 
     /**
