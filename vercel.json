@@ -21,7 +21,7 @@
     "env": {
         "APP_NAME": "La camiseta no se mancha",
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
 
         "MAIL_DRIVER":"smtp",
         "MAIL_HOST":"smtp.office365.com",
