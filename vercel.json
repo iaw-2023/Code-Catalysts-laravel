@@ -14,7 +14,7 @@
         }
     ],
     "env": {
-        "APP NAME": "La camiseta no se mancha",
+        "APP_NAME": "La camiseta no se mancha",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
 
