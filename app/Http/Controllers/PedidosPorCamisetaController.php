@@ -20,7 +20,8 @@ class PedidosPorCamisetaController extends Controller
             ->where('descripcion',$camiseta)
             ->select('pedido.*', 'detalle_pedido.*', 'camiseta.*', 'cliente.*')
             ->get();
-        return view('Pedido.index')->with('pedidos',$pedidos);
+        $mensaje = " de la camiseta $camiseta";
+        return view('Pedido.index')->with('pedidos',$pedidos)->with('mensaje',$mensaje);
     }
 
     /**

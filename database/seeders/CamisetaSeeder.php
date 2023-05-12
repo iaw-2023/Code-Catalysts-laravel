@@ -267,10 +267,32 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Real Madrid Suplente",
+            'precio' => 21710,
+            'talles' => "S M X XL",
+            'imagen' => "https://cdn.shopify.com/s/files/1/0016/1061/2806/products/segunda-equipacion-adidas-real-madrid-2022-23-9_a05ebe17-cf32-45cd-991e-7a2d36c155b2.jpg?v=1663939675",
+            'id_equipo' => 12,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
             'descripcion' => "2022/23 Barcelona Titular",
             'precio' => 30000,
             'talles' => "S M X XL",
             'imagen' => "https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/w_706,c_limit/4d13f622-7534-49e4-87bc-db0c60a97582/fc-barcelona-2022-23.png",
+            'id_equipo' => 13,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Barcelona Suplente",
+            'precio' => 17680,
+            'talles' => "S M X XL",
+            'imagen' => "https://cdn.shopify.com/s/files/1/0016/1061/2806/products/barcelonaaway22.jpg?v=1658517860",
             'id_equipo' => 13,
             'estado' => "Habilitado",
             'created_at' => now(),
@@ -289,10 +311,32 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Atletico Madrid Suplente",
+            'precio' => 26500,
+            'talles' => "S M X XL",
+            'imagen' => "https://mezzalacamisetas.com.ar/wp-content/uploads/2022/11/descarga-10-jpeg.webp",
+            'id_equipo' => 14,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
             'descripcion' => "2022/23 Valencia Titular",
             'precio' => 20000,
             'talles' => "S M X XL",
             'imagen' => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7zRvLjKg0W1QKEgjTarSVQozbPPOTRdujIA&usqp=CAU",
+            'id_equipo' => 15,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Valencia Suplente",
+            'precio' => 18000,
+            'talles' => "S M X XL",
+            'imagen' => "https://todosobrecamisetas.com/wp-content/uploads/camiseta-suplente-puma-valencia-cf-2022-23-2.jpg",
             'id_equipo' => 15,
             'estado' => "Habilitado",
             'created_at' => now(),
@@ -311,10 +355,32 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Villarreal Suplente",
+            'precio' => 20999,
+            'talles' => "S M X XL",
+            'imagen' => "https://www.jomaargentina.com.ar/media/catalog/product/c/a/camiseta-villareal-alternativa---155.jpg",
+            'id_equipo' => 16,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
             'descripcion' => "2022/23 Milan Titular",
             'precio' => 29999,
             'talles' => "S M X XL",
             'imagen' => "https://pbs.twimg.com/media/FplxMpCWcAUkG6N?format=jpg&name=small",
+            'id_equipo' => 17,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Milan Suplente",
+            'precio' => 25999,
+            'talles' => "S M X XL",
+            'imagen' => "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/568/017/products/milan-away-22-23-match1-d9832b75672217191016601629101192-640-0.jpg",
             'id_equipo' => 17,
             'estado' => "Habilitado",
             'created_at' => now(),
@@ -333,10 +399,32 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Inter Suplente",
+            'precio' => 22999,
+            'talles' => "S M X XL",
+            'imagen' => "https://cdn.shopify.com/s/files/1/0016/1061/2806/products/inter-milan-2022-23-nike-away-kit-5.jpg?v=1663685645",
+            'id_equipo' => 18,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
             'descripcion' => "2022/23 Juventus Titular",
             'precio' => 20999,
             'talles' => "S M X XL",
             'imagen' => "https://newsport.vteximg.com.br/arquivos/ids/14145628-455-588/H38907-A.jpg",
+            'id_equipo' => 19,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Juventus Suplente",
+            'precio' => 22999,
+            'talles' => "S M X XL",
+            'imagen' => "https://cdn.shopify.com/s/files/1/0016/1061/2806/products/juventus-2022-23-adidas-away-kit-5_f3e2833f-a2c0-41bb-b14c-32a6cea00fff.jpg?v=1658849859",
             'id_equipo' => 19,
             'estado' => "Habilitado",
             'created_at' => now(),
@@ -355,6 +443,17 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Napoli Suplente",
+            'precio' => 18999,
+            'talles' => "S M X XL",
+            'imagen' => "https://todosobrecamisetas.com/wp-content/uploads/ssc-napoli-ea7-2022-23-kits-8.jpg",
+            'id_equipo' => 20,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
             'descripcion' => "2022/23 Roma Titular",
             'precio' => 17999,
             'talles' => "S M X XL",
@@ -366,10 +465,32 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Roma Suplente",
+            'precio' => 17500,
+            'talles' => "S M X XL",
+            'imagen' => "https://todosobrecamisetas.com/wp-content/uploads/as-roma-2022-23-new-balance-away-kit-3.jpg",
+            'id_equipo' => 21,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
             'descripcion' => "2022/23 Paris Saint Germain Titular",
             'precio' => 31999,
             'talles' => "S M X XL",
             'imagen' => "https://cdn.dsmcdn.com/mnresize/400/-/ty486/product/media/images/20220723/1/148341586/526749194/1/1_org.jpg",
+            'id_equipo' => 22,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
+        DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Paris Saint Germain Suplente",
+            'precio' => 30999,
+            'talles' => "S M X XL",
+            'imagen' => "https://mezzalacamisetas.com.ar/wp-content/uploads/2023/03/paris-saint-germain-away-vapor-match-shirt-2022-23_ss4_p-13309545pv-1u-e2ka6o9kzwks1wp5su7yv-a69a5d3c6068403fa8caae1f67ea1e74.webp",
             'id_equipo' => 22,
             'estado' => "Habilitado",
             'created_at' => now(),
@@ -388,10 +509,32 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Olympique Marsella Suplente",
+            'precio' => 28999,
+            'talles' => "S M X XL",
+            'imagen' => "https://todosobrecamisetas.com/wp-content/uploads/olympique-marseille-2022-23-puma-4th-kit-2.jpg",
+            'id_equipo' => 23,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
             'descripcion' => "2022/23 Monaco Titular",
             'precio' => 19999,
             'talles' => "S M X XL",
             'imagen' => "https://assets-es.imgfoot.com/media/cache/800x800/as-monaco-home-2019-2020.jpg",
+            'id_equipo' => 24,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Monaco Suplente",
+            'precio' => 15999,
+            'talles' => "S M X XL",
+            'imagen' => "https://assets-es.imgfoot.com/media/cache/800x800/as-monaco-away-2019-2020.jpg",
             'id_equipo' => 24,
             'estado' => "Habilitado",
             'created_at' => now(),
@@ -410,10 +553,32 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Olympique Lyon Suplente",
+            'precio' => 17999,
+            'talles' => "S M X XL",
+            'imagen' => "https://todosobrecamisetas.com/wp-content/uploads/olympique-lyon-2022-23-adidas-away-kit-3.jpg",
+            'id_equipo' => 25,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
             'descripcion' => "2022/23 Niza Titular",
             'precio' => 19999,
             'talles' => "S M X XL",
             'imagen' => "https://assets-es.imgfoot.com/media/cache/800x800/2022-2023-nice-home.jpg",
+            'id_equipo' => 26,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Niza Suplente",
+            'precio' => 16999,
+            'talles' => "S M X XL",
+            'imagen' => "https://d3ugyf2ht6aenh.cloudfront.net/stores/002/292/348/products/captura281-099987544cf7a4870b16716703508420-640-0.jpg",
             'id_equipo' => 26,
             'estado' => "Habilitado",
             'created_at' => now(),
@@ -432,10 +597,32 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Bayern Munich Suplente",
+            'precio' => 28999,
+            'talles' => "S M X XL",
+            'imagen' => "https://todosobrecamisetas.com/wp-content/uploads/bayern-munich-2022-23-adidas-away-kit-5.jpg",
+            'id_equipo' => 27,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
             'descripcion' => "2022/23 Borussia Dortmund Titular",
             'precio' => 25999,
             'talles' => "S M X XL",
             'imagen' => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIVdWSlOMGMm8MYnWQYb-expwW8oVyHKr8hg&usqp=CAU",
+            'id_equipo' => 28,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Borussia Dortmund Suplente",
+            'precio' => 23999,
+            'talles' => "S M X XL",
+            'imagen' => "https://http2.mlstatic.com/D_NQ_NP_702034-MLA54518591879_032023-W.jpg",
             'id_equipo' => 28,
             'estado' => "Habilitado",
             'created_at' => now(),
@@ -454,6 +641,17 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Borussia Monchengladbach Suplente",
+            'precio' => 18999,
+            'talles' => "S M X XL",
+            'imagen' => "https://assets-es.imgfoot.com/media/cache/800x800/2022-2023-bmg-third.jpg",
+            'id_equipo' => 29,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
             'descripcion' => "2022/23 Eintracht Frankfurt Titular",
             'precio' => 20999,
             'talles' => "S M X XL",
@@ -465,10 +663,32 @@ class CamisetaSeeder extends Seeder
         ]);
 
         DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Eintracht Frankfurt Suplente",
+            'precio' => 17999,
+            'talles' => "S M X XL",
+            'imagen' => "https://mezzalacamisetas.com.ar/wp-content/uploads/2022/12/p-13304318_pv-1_u-3a6jhqee1tairtl7oanz_v-ad41af58f7dd47a9a66d63934935d79d.webp",
+            'id_equipo' => 30,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
             'descripcion' => "2022/23 Bayer Leverkusen Titular",
             'precio' => 18999,
             'talles' => "S M X XL",
             'imagen' => "https://assets-es.imgfoot.com/media/cache/800x800/2022-2023-b04-home.jpg",
+            'id_equipo' => 31,
+            'estado' => "Habilitado",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('camiseta')->insert([
+            'descripcion' => "2022/23 Bayer Leverkusen Suplente",
+            'precio' => 17999,
+            'talles' => "S M X XL",
+            'imagen' => "https://todosobrecamisetas.com/wp-content/uploads/camisetas-bundesliga-2022-23-bayer-leverkusen-3.jpg",
             'id_equipo' => 31,
             'estado' => "Habilitado",
             'created_at' => now(),

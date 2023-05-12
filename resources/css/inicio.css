@@ -22,3 +22,12 @@ h2 {
     place-items: center;
     text-align:center;
 }
+
+.logoNav {
+    margin-right: 15px;
+}
+
+p {
+    color: white;
+    margin: 15px;
+}

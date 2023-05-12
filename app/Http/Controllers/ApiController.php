@@ -18,17 +18,23 @@ class ApiController extends Controller
     }
 
     public function ligas(Request $request) {
-        $ligas = modeloLiga::all();
+        $ligas = DB::table('liga')
+        ->select('id_liga','nombre')
+        ->get();
         return response()->json($ligas);
     }
 
     public function equipos(Request $request) {
-        $equipos = modeloEquipo::all();
+        $equipos = DB::table('equipo')
+            ->select('id_equipo','nombre','id_liga')
+            ->get();
         return response()->json($equipos);
     }
 
     public function camisetasPorEquipo(Request $request) {
-        $camisetas = modeloCamiseta::where('id_equipo',$request->id)->get();
+        $camisetas = modeloCamiseta::where('id_equipo',$request->id)
+            ->select('camiseta.id_camiseta','camiseta.descripcion','camiseta.precio','camiseta.talles','camiseta.imagen','camiseta.id_equipo','camiseta.estado')
+            ->get();
         return response()->json($camisetas);
     }
 
@@ -50,14 +56,14 @@ class ApiController extends Controller
         $pedido->updated_at = now();
         $pedido->save();
         $ultimo_pedido = modeloPedido::latest('id_pedido')->first();
-        foreach($request->camisetas as $pedido) {
-            $detalle = new modeloDetalles();
-            $detalle->id_pedido = $ultimo_pedido->id_pedido;
-            $detalle->id_camiseta = $pedido[0];
-            $detalle->talle = $pedido[1];
-            $detalle->created_at = now();
-            $detalle->updated_at = now();
-            $detalle->save();
+        foreach($request->camisetas as $camiseta) {
+                $detalle = new modeloDetalles();
+                $detalle->id_pedido = $ultimo_pedido->id_pedido;
+                $detalle->id_camiseta = $camiseta["id_camiseta"];
+                $detalle->talle = $camiseta["talle"];
+                $detalle->created_at = now();
+                $detalle->updated_at = now();
+                $detalle->save();
         }
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;//AGREGARLO EN CADA SEEDER CREADO
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-const CANT_CLIENTES = 10;
+const CANT_CLIENTES = 25;
 
 class ClienteSeeder extends Seeder
 {

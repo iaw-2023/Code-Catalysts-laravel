@@ -1,5 +1,7 @@
 <html>
     <head>
+        <title>Pedidos {{$mensaje}}</title>
+        <link rel="shortcut icon" href="https://i.ibb.co/7WBsHrf/Logo.png">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../resources/css/puntos.css" />
         <link rel="stylesheet" type="text/css" href="../resources/css/inicio.css" />
@@ -9,7 +11,8 @@
     </head>
     <body class="bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         <x-nav></x-nav>
-        <h2>Pedidos</h2>
+        <h2>Pedidos {{$mensaje}}</h2>
+        @if (count($pedidos) > 0)
         <table class="table table-striped table-dark">
             <thead>
                 <tr>
@@ -32,5 +35,9 @@
                 @endforeach
             </tbody>
         </table>
+        @else
+            <p class="mensaje">No se encontraron pedidos.</p>
+        @endif
+        
     </body>
 </html>

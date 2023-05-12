@@ -20,7 +20,8 @@ class PedidosPorClienteController extends Controller
             ->where('email',$cliente)
             ->select('pedido.*', 'detalle_pedido.*', 'camiseta.*', 'cliente.*')
             ->get();
-        return view('Pedido.index')->with('pedidos',$pedidos);
+        $mensaje = " de $cliente";
+        return view('Pedido.index')->with('pedidos',$pedidos)->with('mensaje',$mensaje);
     }
 
     /**

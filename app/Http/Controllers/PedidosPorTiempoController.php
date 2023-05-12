@@ -22,7 +22,8 @@ class PedidosPorTiempoController extends Controller
             ->where('pedido.fecha','>=',$inicio)
             ->where('pedido.fecha','<=',$fin)
             ->get();
-            return view('Pedido.index')->with('pedidos',$pedidos);
+        $mensaje = " desde $inicio hasta $fin";
+        return view('Pedido.index')->with('pedidos',$pedidos)->with('mensaje',$mensaje);
     }
 
     /**
