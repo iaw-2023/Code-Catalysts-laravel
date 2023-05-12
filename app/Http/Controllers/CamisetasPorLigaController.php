@@ -18,7 +18,8 @@ class CamisetasPorLigaController extends Controller
             ->join('camiseta', 'equipo.id_equipo', '=', 'camiseta.id_equipo')
             ->where('liga.nombre',$liga)
             ->get();
-        return view('Camiseta.index')->with("camisetas",$reportes);
+        $mensaje = " de $liga";
+        return view('Camiseta.index')->with("camisetas",$reportes)->with("mensaje",$mensaje);
     }
 
     /**

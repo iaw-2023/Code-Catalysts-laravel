@@ -13,8 +13,9 @@ class CamisetaController extends Controller
      */
     public function index()
     {
+        $mensaje = "";
         $camisetas = modeloCamiseta::all();
-        return view('Camiseta.index')->with('camisetas',$camisetas);
+        return view('Camiseta.index')->with('camisetas',$camisetas)->with('mensaje',$mensaje);
     }
 
     /**

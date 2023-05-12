@@ -21,7 +21,8 @@ class PedidosPorEquipoController extends Controller
             ->where('equipo.nombre',$equipo)
             ->select('pedido.*', 'detalle_pedido.*', 'camiseta.*', 'cliente.*')
             ->get();
-        return view('Pedido.index')->with('pedidos',$pedidos);
+        $mensaje = " sobre $equipo";
+        return view('Pedido.index')->with('pedidos',$pedidos)->with('mensaje',$mensaje);
     }
 
     /**

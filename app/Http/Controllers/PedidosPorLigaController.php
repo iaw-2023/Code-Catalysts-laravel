@@ -22,7 +22,8 @@ class PedidosPorLigaController extends Controller
             ->where('liga.nombre',$liga)
             ->select('pedido.*', 'detalle_pedido.*', 'camiseta.*', 'cliente.*')
             ->get();
-        return view('Pedido.index')->with('pedidos',$pedidos);
+        $mensaje = " sobre $liga";
+        return view('Pedido.index')->with('pedidos',$pedidos)->with('mensaje',$mensaje);
     }
 
     /**
