@@ -128,6 +128,9 @@ Francesa y Alemana.
 	- Comprar camisetas.
 	- Solicitar historial de sus pedidos.
 
+#### Deploy de Vercel
+- Link: https://garcia-sanchez-laravel-genaro08.vercel.app/
+
 #### Documentación Swagger
 - Link: https://editor.swagger.io/?_ga=2.160420605.1594006859.1683928492-360509241.1683740713
 
