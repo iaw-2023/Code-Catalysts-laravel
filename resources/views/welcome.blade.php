@@ -9,8 +9,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="../resources/css/inicio.css" />
-        <link rel="stylesheet" type="text/css" href="../resources/css/puntos.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/inicio.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/puntos.css') }}" />
         
     </head>
     <body class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
