@@ -2,6 +2,15 @@ body{
  background-color: #111827;   
 }
 
+form p {
+    font-size: 0.8rem;
+}
+
+.mensajeSinElementos {
+    color: white;
+    margin-left: 15px;
+}
+
 .formularioNav{
     margin: 0px;
     cursor: pointer;
@@ -27,7 +36,3 @@ h2 {
     margin-right: 15px;
 }
 
-p {
-    color: white;
-    margin: 15px;
-}

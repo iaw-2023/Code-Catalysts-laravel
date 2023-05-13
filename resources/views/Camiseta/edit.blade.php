@@ -17,19 +17,20 @@
             @method('PUT')
             <div class="form-group">
                 <label for="">Descripción</label>
-                <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{$camiseta->descripcion}}">
+                <input type="text" class="form-control" id="descripcion" name="descripcion" required value="{{$camiseta->descripcion}}">
             </div>
             <div class="form-group">
                 <label for="">Precio</label>
-                <input type="number" class="form-control" id="precio" name="precio" value="{{$camiseta->precio}}">
+                <input type="number" class="form-control" id="precio" name="precio" required value="{{$camiseta->precio}}">
             </div>
             <div class="form-group">
                 <label for="">Talles</label>
-                <input type="text" class="form-control" id="talles" name="talles" value="{{$camiseta->talles}}">
+                <p>Los talles deben ingresarse separándolos con un espacio en blanco.</p>
+                <input type="text" class="form-control" id="talles" name="talles" required value="{{$camiseta->talles}}">
             </div>
             <div class="form-group">
                 <label for="">Imagen</label>
-                <input type="text" class="form-control" id="imagen" name="imagen" value="{{$camiseta->imagen}}">
+                <input type="text" class="form-control" id="imagen" name="imagen" required value="{{$camiseta->imagen}}">
             </div>
             <div class="form-group">
                 <label for="">Equipo</label>
@@ -43,6 +44,7 @@
             
             <div class="form-group">
                 <label for="">Estado</label>
+                <p>Si el estado de una camiseta es "Habilitado" se mostrará en la página online de ventas. En cambio, si es "Deshabilitado" no será visible para los clientes.</p>
                 <select name ="estado" id="estado" value="{{$camiseta->estado}}">
                     <option name ="estado" id="estado" value="Habilitado">Habilitado</option>
                     <option name ="estado" id="estado" value="Deshabilitado">Deshabilitado</option>

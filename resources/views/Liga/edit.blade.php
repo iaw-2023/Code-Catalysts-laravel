@@ -17,7 +17,7 @@
             @method('PUT')
             <div class="form-group">
                 <label for="">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value="{{$liga->nombre}}">
+                <input type="text" class="form-control" id="nombre" name="nombre" required value="{{$liga->nombre}}">
             </div>
             <button type="submit" class="btn btn-primary">Actualizar</button>
         </form>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\modeloCamiseta;
+use Illuminate\Support\Facades\DB;
 use App\Models\modeloEquipo;
 
 class CamisetaController extends Controller
@@ -14,7 +15,9 @@ class CamisetaController extends Controller
     public function index()
     {
         $mensaje = "";
-        $camisetas = modeloCamiseta::all();
+        $camisetas = DB::table('camiseta')
+                ->orderBy('id_camiseta', 'asc')
+                ->get();
         return view('Camiseta.index')->with('camisetas',$camisetas)->with('mensaje',$mensaje);
     }
 
@@ -23,7 +26,9 @@ class CamisetaController extends Controller
      */
     public function create()
     {
-        $equipos = modeloEquipo::all();
+        $equipos = DB::table('equipo')
+                ->orderBy('id_equipo', 'asc')
+                ->get();
         return view('Camiseta.create')->with('equipos',$equipos);
     }
 
@@ -78,7 +83,6 @@ class CamisetaController extends Controller
         $camiseta->imagen = $request->get('imagen');
         $camiseta->id_equipo = $equipo->id_equipo;
         $camiseta->estado = $request->get('estado');
-        $camiseta->created_at = now();
         $camiseta->updated_at = now();
         $camiseta->save();
         return redirect('/camisetas');

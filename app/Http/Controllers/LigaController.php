@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\modeloLiga;
 
 class LigaController extends Controller
@@ -12,7 +13,9 @@ class LigaController extends Controller
      */
     public function index()
     {
-        $ligas = modeloLiga::all();
+        $ligas = DB::table('liga')
+                    ->orderBy('id_liga', 'asc')
+                    ->get();
         return view('Liga.index')->with('ligas',$ligas);
     }
 
@@ -61,7 +64,6 @@ class LigaController extends Controller
     {
         $liga = modeloLiga::find($id);
         $liga->nombre = $request->get('nombre');
-        $liga->created_at = now();
         $liga->updated_at = now();
         $liga->save();
         return redirect('/ligas');

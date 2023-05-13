@@ -17,6 +17,7 @@ class EquipoController extends Controller
         //$equipos = modeloEquipo::all();
         $equipos = DB::table('equipo')
             ->join('liga', 'equipo.id_liga', '=', 'liga.id_liga')
+            ->orderBy('id_equipo', 'asc')
             ->select('equipo.*', 'liga.nombre AS liga')
             ->get();
         return view('Equipo.index')->with('equipos',$equipos);
@@ -74,7 +75,6 @@ class EquipoController extends Controller
         $equipo = modeloEquipo::find($id);
         $equipo->nombre = $request->get('nombre');
         $equipo->id_liga = $liga->id_liga;
-        $equipo->created_at = now();
         $equipo->updated_at = now();
         $equipo->save();
         return redirect('/equipos');

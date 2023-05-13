@@ -16,7 +16,7 @@
             @csrf
             <div class="form-group">
                 <label for="">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre">
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>
             <div class="form-group">
                 <label for="">Liga</label>
