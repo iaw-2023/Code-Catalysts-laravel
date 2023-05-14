@@ -1,0 +1,89 @@
+.relative {
+    position: relative;
+  }
+  
+  .sm\:flex {
+    display: flex;
+  }
+  
+  .sm\:justify-center {
+    justify-content: center;
+  }
+  
+  .sm\:items-center {
+    align-items: center;
+  }
+  
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  
+  .bg-center {
+    background-position: center;
+  }
+  
+  .bg-gray-100 {
+    background-color: #f7fafc;
+  }
+  
+  .dark\:bg-gray-900 {
+    background-color: #1a202c;
+  }
+  
+  .selection\:bg-red-500::selection {
+    background-color: #ef4444;
+    color: #fff;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .sm\:max-w-md {
+    max-width: 28rem;
+  }
+  
+  .mt-6 {
+    margin-top: 1.5rem;
+  }
+  
+  .px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .bg-white {
+    background-color: #fff;
+  }
+  
+  .dark\:bg-gray-800 {
+    background-color: #2d3748;
+  }
+  
+  .shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  .sm\:rounded-lg {
+    border-radius: 0.5rem;
+  }
+
+  button {
+    border-radius: 6px;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2%;
+  }
