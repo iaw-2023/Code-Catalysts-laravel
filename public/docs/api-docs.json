@@ -1,0 +1,432 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API Tienda \"La camiseta no se mancha\"",
+    "description": "Esta API se encarga de compartir información sobre las camisetas, equipos y ligas que administra nuestra tienda. Además, recibe los nuevos pedidos realizados por los clientes para almacenarlos en nuestra base de datos.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://garcia-sanchez-laravel-genaro08.vercel.app/rest/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Camisetas"
+    },
+    {
+      "name": "Equipos"
+    },
+    {
+      "name": "Ligas"
+    },
+    {
+      "name": "Pedidos"
+    }
+  ],
+  "paths": {
+    "/camisetas": {
+      "get": {
+        "tags": [
+          "Camisetas"
+        ],
+        "summary": "Devuelve todas las camisetas de la tienda.",
+        "responses": {
+          "200": {
+            "description": "(OK) Las camisetas fueron obtenidas correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id_camiseta": {
+                        "type": "integer",
+                        "description": "Identificador de la camiseta."
+                      },
+                      "descripcion": {
+                        "type": "string",
+                        "description": "Descripción de la camiseta."
+                      },
+                      "precio": {
+                        "type": "integer",
+                        "description": "Precio de la camiseta."
+                      },
+                      "talles": {
+                        "type": "string",
+                        "description": "Talles de la camiseta."
+                      },
+                      "imagen": {
+                        "type": "string",
+                        "description": "Identificador de la camiseta."
+                      },
+                      "id_equipo": {
+                        "type": "integer",
+                        "description": "Identificador del equipo de la camiseta."
+                      },
+                      "estado": {
+                        "type": "string",
+                        "description": "Estado de la camiseta."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/camisetas/equipo/{id}": {
+      "get": {
+        "tags": [
+          "Camisetas"
+        ],
+        "summary": "Devuelve todas las camisetas de un equipo.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identificador del equipo a obtener sus camisetas.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "(OK) Las camisetas del equipo fueron obtenidas correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id_camiseta": {
+                        "type": "integer",
+                        "description": "Identificador de la camiseta."
+                      },
+                      "descripcion": {
+                        "type": "string",
+                        "description": "Descripción de la camiseta."
+                      },
+                      "precio": {
+                        "type": "integer",
+                        "description": "Precio de la camiseta."
+                      },
+                      "talles": {
+                        "type": "string",
+                        "description": "Talles de la camiseta."
+                      },
+                      "imagen": {
+                        "type": "string",
+                        "description": "Identificador de la camiseta."
+                      },
+                      "id_equipo": {
+                        "type": "integer",
+                        "description": "Identificador del equipo de la camiseta."
+                      },
+                      "estado": {
+                        "type": "string",
+                        "description": "Estado de la camiseta."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/camisetas/liga/{id}": {
+      "get": {
+        "tags": [
+          "Camisetas"
+        ],
+        "summary": "Devuelve todas las camisetas de una liga.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identificador de la liga a obtener sus camisetas.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "(OK) Las camisetas de la liga fueron obtenidas correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id_camiseta": {
+                        "type": "integer",
+                        "description": "Identificador de la camiseta."
+                      },
+                      "descripcion": {
+                        "type": "string",
+                        "description": "Descripción de la camiseta."
+                      },
+                      "precio": {
+                        "type": "integer",
+                        "description": "Precio de la camiseta."
+                      },
+                      "talles": {
+                        "type": "string",
+                        "description": "Talles de la camiseta."
+                      },
+                      "imagen": {
+                        "type": "string",
+                        "description": "Identificador de la camiseta."
+                      },
+                      "id_equipo": {
+                        "type": "integer",
+                        "description": "Identificador del equipo de la camiseta."
+                      },
+                      "estado": {
+                        "type": "string",
+                        "description": "Estado de la camiseta."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/equipos": {
+      "get": {
+        "tags": [
+          "Equipos"
+        ],
+        "summary": "Devuelve todos los equipos que administra la tienda.",
+        "responses": {
+          "200": {
+            "description": "(OK) Los equipos fueron obtenidos correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id_equipo": {
+                        "type": "integer",
+                        "description": "Identificador del equipo."
+                      },
+                      "nombre": {
+                        "type": "string",
+                        "description": "Nombre del equipo."
+                      },
+                      "id_liga": {
+                        "type": "integer",
+                        "description": "Identificador de la liga del equipo."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ligas": {
+      "get": {
+        "tags": [
+          "Ligas"
+        ],
+        "summary": "Devuelve todos las ligas que administra la tienda.",
+        "responses": {
+          "200": {
+            "description": "(OK) Las ligas fueron obtenidos correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id_liga": {
+                        "type": "integer",
+                        "description": "Identificador de la liga."
+                      },
+                      "nombre": {
+                        "type": "string",
+                        "description": "Nombre de la liga."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pedido": {
+      "post": {
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Inserta un nuevo pedido.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_cliente": {
+                    "type": "integer",
+                    "description": "Identificador del cliente que realiza el pedido."
+                  },
+                  "camisetas": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id_camiseta": {
+                          "type": "integer",
+                          "description": "Identificador de la camiseta del pedido."
+                        },
+                        "talle": {
+                          "type": "string",
+                          "description": "Talle de la camiseta del pedido."
+                        }
+                      }
+                    },
+                    "description": "Camisetas del pedido."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "(OK) El pedido fue insertado correctamente."
+          }
+        }
+      }
+    },
+    "/LaCamisetaNoSeManchaAPI": {}
+  },
+  "components": {
+    "schemas": {
+      "Camiseta": {
+        "type": "object",
+        "properties": {
+          "id_camiseta": {
+            "type": "integer",
+            "description": "Identificador de la camiseta."
+          },
+          "descripcion": {
+            "type": "string",
+            "description": "Descripción de la camiseta."
+          },
+          "precio": {
+            "type": "integer",
+            "description": "Precio de la camiseta."
+          },
+          "talles": {
+            "type": "string",
+            "description": "Talles de la camiseta."
+          },
+          "imagen": {
+            "type": "string",
+            "description": "Identificador de la camiseta."
+          },
+          "id_equipo": {
+            "type": "integer",
+            "description": "Identificador del equipo de la camiseta."
+          },
+          "estado": {
+            "type": "string",
+            "description": "Estado de la camiseta."
+          }
+        }
+      },
+      "Equipo": {
+        "type": "object",
+        "properties": {
+          "id_equipo": {
+            "type": "integer",
+            "description": "Identificador del equipo."
+          },
+          "nombre": {
+            "type": "string",
+            "description": "Nombre del equipo."
+          },
+          "id_liga": {
+            "type": "integer",
+            "description": "Identificador de la liga del equipo."
+          }
+        }
+      },
+      "Liga": {
+        "type": "object",
+        "properties": {
+          "id_liga": {
+            "type": "integer",
+            "description": "Identificador de la liga."
+          },
+          "nombre": {
+            "type": "string",
+            "description": "Nombre de la liga."
+          }
+        }
+      },
+      "BodyPedido": {
+        "type": "object",
+        "properties": {
+          "id_cliente": {
+            "type": "integer",
+            "description": "Identificador del cliente que realiza el pedido."
+          },
+          "camisetas": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id_camiseta": {
+                  "type": "integer",
+                  "description": "Identificador de la camiseta del pedido."
+                },
+                "talle": {
+                  "type": "string",
+                  "description": "Talle de la camiseta del pedido."
+                }
+              }
+            },
+            "description": "Camisetas del pedido."
+          }
+        }
+      },
+      "CamisetaPedido": {
+        "type": "object",
+        "properties": {
+          "id_camiseta": {
+            "type": "integer",
+            "description": "Identificador de la camiseta del pedido."
+          },
+          "talle": {
+            "type": "string",
+            "description": "Talle de la camiseta del pedido."
+          }
+        }
+      }
+    }
+  }
+}
