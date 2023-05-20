@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="">Precio</label>
-                <input type="number" class="form-control" id="precio" name="precio" required value="{{$camiseta->precio}}">
+                <input type="number" class="form-control" id="precio" name="precio" min="1" required value="{{$camiseta->precio}}">
             </div>
             <div class="form-group">
                 <label for="">Talles</label>
