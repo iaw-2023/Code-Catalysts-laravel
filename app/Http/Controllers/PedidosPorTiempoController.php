@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\modeloPedido;
 
 class PedidosPorTiempoController extends Controller
 {
@@ -14,8 +14,7 @@ class PedidosPorTiempoController extends Controller
     {
         $inicio = request()->get('inicio');
         $fin = request()->get('fin');
-        $pedidos = DB::table('pedido')
-            ->join('detalle_pedido', 'pedido.id_pedido', '=', 'detalle_pedido.id_pedido')
+        $pedidos = modeloPedido::join('detalle_pedido', 'pedido.id_pedido', '=', 'detalle_pedido.id_pedido')
             ->join('camiseta', 'camiseta.id_camiseta', '=', 'detalle_pedido.id_camiseta')
             ->join('cliente', 'cliente.id_cliente', '=', 'pedido.id_cliente')
             ->select('pedido.*', 'detalle_pedido.*', 'camiseta.*', 'cliente.*')

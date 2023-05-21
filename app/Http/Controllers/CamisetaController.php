@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\modeloCamiseta;
-use Illuminate\Support\Facades\DB;
 use App\Models\modeloEquipo;
 
 class CamisetaController extends Controller
@@ -15,9 +14,7 @@ class CamisetaController extends Controller
     public function index()
     {
         $mensaje = "";
-        $camisetas = DB::table('camiseta')
-                ->orderBy('id_camiseta', 'asc')
-                ->get();
+        $camisetas = modeloCamiseta::orderBy('id_camiseta', 'asc')->get();
         return view('Camiseta.index')->with('camisetas',$camisetas)->with('mensaje',$mensaje);
     }
 
@@ -26,9 +23,7 @@ class CamisetaController extends Controller
      */
     public function create()
     {
-        $equipos = DB::table('equipo')
-                ->orderBy('id_equipo', 'asc')
-                ->get();
+        $equipos = modeloEquipo::orderBy('id_equipo', 'asc')->get();
         return view('Camiseta.create')->with('equipos',$equipos);
     }
 
@@ -66,7 +61,7 @@ class CamisetaController extends Controller
     {
         $camiseta = modeloCamiseta::find($id);
         $equipoActual = modeloEquipo::where('id_equipo',$camiseta->id_equipo)->first();
-        $equipos = modeloEquipo::all()->where('id_equipo','!=',$camiseta->id_equipo);
+        $equipos = modeloEquipo::where('id_equipo','!=',$camiseta->id_equipo);
         return view('Camiseta.edit')->with('camiseta',$camiseta)->with('equipos',$equipos)->with('equipoActual',$equipoActual);
     }
 

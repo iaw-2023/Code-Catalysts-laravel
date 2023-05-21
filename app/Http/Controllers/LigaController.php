@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\modeloLiga;
 
 class LigaController extends Controller
@@ -13,9 +12,7 @@ class LigaController extends Controller
      */
     public function index()
     {
-        $ligas = DB::table('liga')
-                    ->orderBy('id_liga', 'asc')
-                    ->get();
+        $ligas = modeloLiga::orderBy('id_liga', 'asc')->get();
         return view('Liga.index')->with('ligas',$ligas);
     }
 

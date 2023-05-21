@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\modeloDetalles;
-use App\Models\modeloCamiseta;
-use Illuminate\Support\Facades\DB;
+use App\Models\modeloPedido;
 
 class PedidoController extends Controller
 {
@@ -15,8 +13,7 @@ class PedidoController extends Controller
     public function index()
     {
         $mensaje = "";
-        $pedidos = DB::table('pedido')
-            ->join('detalle_pedido', 'pedido.id_pedido', '=', 'detalle_pedido.id_pedido')
+        $pedidos = modeloPedido::join('detalle_pedido', 'pedido.id_pedido', '=', 'detalle_pedido.id_pedido')
             ->join('camiseta', 'camiseta.id_camiseta', '=', 'detalle_pedido.id_camiseta')
             ->join('cliente', 'cliente.id_cliente', '=', 'pedido.id_cliente')
             ->select('pedido.*', 'detalle_pedido.*', 'camiseta.*', 'cliente.*')

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\modeloEquipo;
 
 class CamisetasPorEquipoController extends Controller
 {
@@ -13,8 +13,7 @@ class CamisetasPorEquipoController extends Controller
     public function index()
     {
         $equipo = request()->get('equipo');
-        $reportes = DB::table('equipo')
-            ->join('camiseta', 'equipo.id_equipo', '=', 'camiseta.id_equipo')
+        $reportes = modeloEquipo::join('camiseta', 'equipo.id_equipo', '=', 'camiseta.id_equipo')
             ->where('nombre',$equipo)
             ->get();
         $mensaje = " de $equipo"; 
