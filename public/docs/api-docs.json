@@ -30,7 +30,7 @@
         "tags": [
           "Camisetas"
         ],
-        "summary": "Devuelve todas las camisetas de la tienda.",
+        "summary": "Devuelve todas las camisetas de la tienda que tengan estado \"Habilitado\".",
         "responses": {
           "200": {
             "description": "(OK) Las camisetas fueron obtenidas correctamente.",
@@ -64,10 +64,62 @@
                       "id_equipo": {
                         "type": "integer",
                         "description": "Identificador del equipo de la camiseta."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/camiseta/{id}": {
+      "get": {
+        "tags": [
+          "Camisetas"
+        ],
+        "summary": "Devuelve una camiseta que tenga estado \"Habilitado\".",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identificador de la camiseta a obtener.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "(OK) La camiseta fue obtenida correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id_camiseta": {
+                        "type": "integer",
+                        "description": "Identificador de la camiseta."
                       },
-                      "estado": {
+                      "descripcion": {
                         "type": "string",
-                        "description": "Estado de la camiseta."
+                        "description": "Descripción de la camiseta."
+                      },
+                      "precio": {
+                        "type": "integer",
+                        "description": "Precio de la camiseta."
+                      },
+                      "talles": {
+                        "type": "string",
+                        "description": "Talles de la camiseta."
+                      },
+                      "imagen": {
+                        "type": "string",
+                        "description": "Identificador de la camiseta."
                       }
                     }
                   }
@@ -83,7 +135,7 @@
         "tags": [
           "Camisetas"
         ],
-        "summary": "Devuelve todas las camisetas de un equipo.",
+        "summary": "Devuelve todas las camisetas de un equipo que tengan estado \"Habilitado\".",
         "parameters": [
           {
             "name": "id",
@@ -124,14 +176,6 @@
                       "imagen": {
                         "type": "string",
                         "description": "Identificador de la camiseta."
-                      },
-                      "id_equipo": {
-                        "type": "integer",
-                        "description": "Identificador del equipo de la camiseta."
-                      },
-                      "estado": {
-                        "type": "string",
-                        "description": "Estado de la camiseta."
                       }
                     }
                   }
@@ -147,7 +191,7 @@
         "tags": [
           "Camisetas"
         ],
-        "summary": "Devuelve todas las camisetas de una liga.",
+        "summary": "Devuelve todas las camisetas de una liga que tengan estado \"Habilitado\".",
         "parameters": [
           {
             "name": "id",
@@ -191,11 +235,7 @@
                       },
                       "id_equipo": {
                         "type": "integer",
-                        "description": "Identificador del equipo de la camiseta."
-                      },
-                      "estado": {
-                        "type": "string",
-                        "description": "Estado de la camiseta."
+                        "description": "Identificador del equipo de la camiseta.."
                       }
                     }
                   }
@@ -212,6 +252,54 @@
           "Equipos"
         ],
         "summary": "Devuelve todos los equipos que administra la tienda.",
+        "responses": {
+          "200": {
+            "description": "(OK) Los equipos fueron obtenidos correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id_equipo": {
+                        "type": "integer",
+                        "description": "Identificador del equipo."
+                      },
+                      "nombre": {
+                        "type": "string",
+                        "description": "Nombre del equipo."
+                      },
+                      "id_liga": {
+                        "type": "integer",
+                        "description": "Identificador de la liga del equipo."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/equipos/liga/{id}": {
+      "get": {
+        "tags": [
+          "Equipos"
+        ],
+        "summary": "Devuelve todos los equipos de una liga.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identificador de la liga a obtener sus equipos.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "(OK) Los equipos fueron obtenidos correctamente.",
@@ -351,10 +439,6 @@
           "id_equipo": {
             "type": "integer",
             "description": "Identificador del equipo de la camiseta."
-          },
-          "estado": {
-            "type": "string",
-            "description": "Estado de la camiseta."
           }
         }
       },
