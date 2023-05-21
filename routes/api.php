@@ -24,3 +24,5 @@ Route::get('ligas','App\Http\Controllers\ApiController@ligas');
 Route::get('camisetas/equipo/{id}','App\Http\Controllers\ApiController@camisetasPorEquipo');
 Route::get('camisetas/liga/{id}','App\Http\Controllers\ApiController@camisetasPorLiga');
 Route::post('pedido','App\Http\Controllers\ApiController@pedido');
+Route::get('camiseta/{id}','App\Http\Controllers\ApiController@camisetasPorId');
+Route::get('equipos/liga/{id}','App\Http\Controllers\ApiController@equiposPorLiga');

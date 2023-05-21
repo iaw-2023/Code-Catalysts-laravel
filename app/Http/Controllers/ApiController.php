@@ -65,4 +65,20 @@ class ApiController extends Controller
                 $detalle->save();
         }
     }
+
+    public function camisetasPorId(Request $request) {
+        $camisetas = modeloCamiseta::where('id_camiseta',$request->id)
+            ->where('estado','Habilitado')
+            ->select('id_camiseta','descripcion','precio','talles','imagen')
+            ->get();
+        return response()->json($camisetas);
+    }
+
+    public function equiposPorLiga(Request $request) {
+        $equipos = modeloEquipo::where('id_liga',$request->id)
+        ->select('id_equipo','nombre','id_liga')
+        ->get();
+        return response()->json($equipos);
+    }
+
 }
