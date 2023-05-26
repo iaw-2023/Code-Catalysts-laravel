@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\modeloLiga;
+use App\Models\modeloCamiseta;
 
 class CamisetasPorLigaController extends Controller
 {
@@ -13,12 +13,10 @@ class CamisetasPorLigaController extends Controller
     public function index()
     {
         $liga = request()->get('liga');
-        $reportes = modeloLiga::join('equipo', 'liga.id_liga', '=', 'equipo.id_liga')
-            ->join('camiseta', 'equipo.id_equipo', '=', 'camiseta.id_equipo')
-            ->where('liga.nombre',$liga)
-            ->get();
+        $reportes = ModeloCamiseta::whereHas('equipo', function ($query) use ($liga) { $query->whereHas('liga', function ($query) use ($liga) { $query->where('nombre', $liga); });})
+        ->get();
         $mensaje = " de $liga";
-        return view('Camiseta.index')->with("camisetas",$reportes)->with("mensaje",$mensaje);
+        return view('Camiseta.index')->with("camisetas", $reportes)->with("mensaje", $mensaje);
     }
 
     /**
