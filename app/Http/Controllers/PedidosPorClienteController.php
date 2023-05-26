@@ -13,14 +13,10 @@ class PedidosPorClienteController extends Controller
     public function index()
     {
         $cliente = request()->get('cliente');
-        $pedidos = modeloPedido::join('detalle_pedido', 'pedido.id_pedido', '=', 'detalle_pedido.id_pedido')
-            ->join('camiseta', 'camiseta.id_camiseta', '=', 'detalle_pedido.id_camiseta')
-            ->join('cliente', 'cliente.id_cliente', '=', 'pedido.id_cliente')
-            ->where('email',$cliente)
-            ->select('pedido.*', 'detalle_pedido.*', 'camiseta.*', 'cliente.*')
-            ->get();
+        $pedidos = ModeloPedido::whereHas('cliente', function ($query) use ($cliente) { $query->where('email', $cliente);})->with('detalles.camiseta', 'cliente')
+        ->get();
         $mensaje = " de $cliente";
-        return view('Pedido.index')->with('pedidos',$pedidos)->with('mensaje',$mensaje);
+        return view('Pedido.index')->with('pedidos', $pedidos)->with('mensaje', $mensaje);
     }
 
     /**

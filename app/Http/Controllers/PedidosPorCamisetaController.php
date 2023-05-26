@@ -13,14 +13,10 @@ class PedidosPorCamisetaController extends Controller
     public function index()
     {
         $camiseta = request()->get('camiseta');
-        $pedidos = modeloPedido::join('detalle_pedido', 'pedido.id_pedido', '=', 'detalle_pedido.id_pedido')
-            ->join('camiseta', 'camiseta.id_camiseta', '=', 'detalle_pedido.id_camiseta')
-            ->join('cliente', 'cliente.id_cliente', '=', 'pedido.id_cliente')
-            ->where('descripcion',$camiseta)
-            ->select('pedido.*', 'detalle_pedido.*', 'camiseta.*', 'cliente.*')
-            ->get();
+        $pedidos = ModeloPedido::whereHas('detalles.camiseta', function ($query) use ($camiseta) { $query->where('descripcion', $camiseta); })->with('cliente', 'detalles.camiseta')
+        ->get();
         $mensaje = " de la camiseta $camiseta";
-        return view('Pedido.index')->with('pedidos',$pedidos)->with('mensaje',$mensaje);
+        return view('Pedido.index')->with('pedidos', $pedidos)->with('mensaje', $mensaje);
     }
 
     /**

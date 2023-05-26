@@ -13,16 +13,10 @@ class PedidosPorLigaController extends Controller
     public function index()
     {
         $liga = request()->get('liga');
-        $pedidos = modeloPedido::join('detalle_pedido', 'pedido.id_pedido', '=', 'detalle_pedido.id_pedido')
-            ->join('camiseta', 'camiseta.id_camiseta', '=', 'detalle_pedido.id_camiseta')
-            ->join('cliente', 'cliente.id_cliente', '=', 'pedido.id_cliente')
-            ->join('equipo', 'camiseta.id_equipo', '=', 'equipo.id_equipo')
-            ->join('liga', 'equipo.id_liga', '=', 'liga.id_liga')
-            ->where('liga.nombre',$liga)
-            ->select('pedido.*', 'detalle_pedido.*', 'camiseta.*', 'cliente.*')
-            ->get();
+        $pedidos = ModeloPedido::whereHas('detalles.camiseta.equipo.liga', function ($query) use ($liga) { $query->where('nombre', $liga); })->with('detalles.camiseta.equipo.liga', 'cliente')
+        ->get();
         $mensaje = " sobre $liga";
-        return view('Pedido.index')->with('pedidos',$pedidos)->with('mensaje',$mensaje);
+        return view('Pedido.index')->with('pedidos', $pedidos)->with('mensaje', $mensaje);
     }
 
     /**

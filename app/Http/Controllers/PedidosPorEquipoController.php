@@ -13,15 +13,10 @@ class PedidosPorEquipoController extends Controller
     public function index()
     {
         $equipo = request()->get('equipo');
-        $pedidos = modeloPedido::join('detalle_pedido', 'pedido.id_pedido', '=', 'detalle_pedido.id_pedido')
-            ->join('camiseta', 'camiseta.id_camiseta', '=', 'detalle_pedido.id_camiseta')
-            ->join('cliente', 'cliente.id_cliente', '=', 'pedido.id_cliente')
-            ->join('equipo', 'camiseta.id_equipo', '=', 'equipo.id_equipo')
-            ->where('equipo.nombre',$equipo)
-            ->select('pedido.*', 'detalle_pedido.*', 'camiseta.*', 'cliente.*')
-            ->get();
+        $pedidos = ModeloPedido::whereHas('detalles.camiseta.equipo', function ($query) use ($equipo) { $query->where('nombre', $equipo); })->with('detalles.camiseta', 'cliente')
+        ->get();
         $mensaje = " sobre $equipo";
-        return view('Pedido.index')->with('pedidos',$pedidos)->with('mensaje',$mensaje);
+        return view('Pedido.index')->with('pedidos', $pedidos)->with('mensaje', $mensaje);
     }
 
     /**
