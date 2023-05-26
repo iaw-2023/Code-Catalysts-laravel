@@ -17,13 +17,15 @@
         </thead>
         <tbody>
             @foreach ($pedidos as $pedido)
-            <tr>
-                <td>{{$pedido->id_pedido}}</td>
-                <td>{{$pedido->email}}</td>
-                <td>{{$pedido->descripcion}}</td>
-                <td>{{$pedido->talle}}</td>
-                <td>{{$pedido->fecha}}</td>
-            </tr>
+                @foreach ($pedido->detalles as $detalle)
+                    <tr>
+                        <td>{{$pedido->id_pedido}}</td>
+                        <td>{{$pedido->cliente->email}}</td>
+                        <td>{{$detalle->camiseta->descripcion}}</td>
+                        <td>{{$detalle->talle}}</td>
+                        <td>{{$pedido->fecha}}</td>
+                    </tr>
+                @endforeach
             @endforeach
         </tbody>
     </table>

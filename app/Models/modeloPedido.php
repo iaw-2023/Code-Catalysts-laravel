@@ -20,7 +20,7 @@ class ModeloPedido extends Model
 
     //la clave foranea, la que aparece en detalles
     public function detalles(){
-        return $this->hasMany(ModeloDetalle::class,'id_pedido');
+        return $this->hasMany(ModeloDetalles::class,'id_pedido');
     }
 
 }
