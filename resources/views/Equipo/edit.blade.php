@@ -14,7 +14,7 @@
         <div class="form-group">
             <label for="">Liga</label>
             <select name ="liga" id="liga">
-                <option name ="liga" id="liga" selected> {{$ligaActual->nombre}} </option>
+                <option name ="liga" id="liga" selected> {{$equipo->liga->nombre}} </option>
                 @foreach ($ligas as $liga)
                     <option name ="liga" id="liga"> {{$liga->nombre}} </option>
                 @endforeach

@@ -4,21 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use app\Models\modeloLiga;
-use app\Models\modeloCamiseta;
+use App\Models\ModeloLiga;
+use App\Models\ModeloCamiseta;
 
-class modeloEquipo extends Model
+class ModeloEquipo extends Model
 {
     use HasFactory;
     protected $table = 'equipo'; 
     protected $primaryKey = 'id_equipo';
 
-    public function Liga(){
-        return $this->belongsTo(modeloLiga::class,'id_liga');
+    public function liga(){
+        return $this->belongsTo(ModeloLiga::class, 'id_liga');
     }
 
-    //la clave foranea, la que aparece en detalles
     public function camisetas(){
-        return $this->hasMany(modeloCamiseta::class,'id_equipo');
+        return $this->hasMany(ModeloCamiseta::class, 'id_equipo');
     }
 }

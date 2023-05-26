@@ -16,7 +16,7 @@
             @foreach ($equipos as $equipo)
             <tr>
                 <td>{{$equipo->nombre}}</td>
-                <td>{{$equipo->liga}}</td>
+                <td>{{$equipo->liga->nombre}}</td>
                 <td> <a href="equipos/{{$equipo->id_equipo}}/edit" class="boton btn btn-outline-primary"> Editar </a> </td>
             </tr>
             @endforeach

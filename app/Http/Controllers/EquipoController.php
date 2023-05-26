@@ -13,9 +13,8 @@ class EquipoController extends Controller
      */
     public function index()
     {
-        $equipos = modeloEquipo::join('liga', 'equipo.id_liga', '=', 'liga.id_liga')
+        $equipos = modeloEquipo::with('Liga')
             ->orderBy('id_equipo', 'asc')
-            ->select('equipo.*', 'liga.nombre AS liga')
             ->get();
         return view('Equipo.index')->with('equipos',$equipos);
     }
@@ -57,10 +56,9 @@ class EquipoController extends Controller
      */
     public function edit(string $id)
     {
-        $equipo = modeloEquipo::find($id);
-        $ligaActual = modeloLiga::where('id_liga',$equipo->id_liga)->first();
-        $ligas = modeloLiga::all()->where('id_liga','!=',$equipo->id_liga);
-        return view('Equipo.edit')->with('equipo',$equipo)->with('ligas',$ligas)->with('ligaActual',$ligaActual);
+        $equipo = ModeloEquipo::find($id);
+        $ligas = ModeloLiga::whereNotIn('id_liga',[$equipo->id_liga])->get();
+        return view('Equipo.edit')->with('equipo', $equipo)->with('ligas', $ligas);
     }
 
     /**
