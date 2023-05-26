@@ -27,7 +27,7 @@
         <div class="form-group">
             <label for="">Equipo</label>
             <select name ="equipo" id="equipo">
-                <option name ="equipo" id="equipo" selected> {{$equipoActual->nombre}} </option>
+                <option name ="equipo" id="equipo" selected> {{$camiseta->equipo->nombre}} </option>
                 @foreach ($equipos as $equipo)
                     <option name ="equipo" id="equipo"> {{$equipo->nombre}} </option>
                 @endforeach

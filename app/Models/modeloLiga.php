@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use app\Models\modeloEquipo;
+use App\Models\ModeloEquipo;
 
-class modeloLiga extends Model
+class ModeloLiga extends Model
 {
     use HasFactory;
     protected $table = 'liga'; 
@@ -14,6 +14,6 @@ class modeloLiga extends Model
 
     //la clave foranea, la que aparece en detalles
     public function equipos(){
-        return $this->hasMany(modeloEquipo::class,'id_liga');
+        return $this->hasMany(ModeloEquipo::class,'id_liga');
     }   
 }

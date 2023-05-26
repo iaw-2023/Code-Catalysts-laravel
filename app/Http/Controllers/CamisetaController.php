@@ -60,9 +60,8 @@ class CamisetaController extends Controller
     public function edit(string $id)
     {
         $camiseta = modeloCamiseta::find($id);
-        $equipoActual = modeloEquipo::where('id_equipo',$camiseta->id_equipo)->first();
-        $equipos = modeloEquipo::all()->where('id_equipo','!=',$camiseta->id_equipo);
-        return view('Camiseta.edit')->with('camiseta',$camiseta)->with('equipos',$equipos)->with('equipoActual',$equipoActual);
+        $equipos = modeloEquipo::whereNotIn('id_equipo',[$camiseta->id_equipo])->get();
+        return view('Camiseta.edit')->with('camiseta',$camiseta)->with('equipos',$equipos);
     }
 
     /**
