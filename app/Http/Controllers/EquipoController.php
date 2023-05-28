@@ -13,9 +13,7 @@ class EquipoController extends Controller
      */
     public function index()
     {
-        $equipos = modeloEquipo::with('Liga')
-            ->orderBy('id_equipo', 'asc')
-            ->get();
+        $equipos = modeloEquipo::with(['liga'])->get();
         return view('Equipo.index')->with('equipos',$equipos);
     }
 

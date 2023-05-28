@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\ModeloEquipo;
-use App\Models\ModeloDetalles;
+use App\Models\modeloCliente;
+use App\Models\modeloDetalles;
 
-class ModeloPedido extends Model
+class modeloPedido extends Model
 {
     use HasFactory;
     protected $table = 'pedido'; 
@@ -15,12 +15,12 @@ class ModeloPedido extends Model
 
     //la clave que aparece camiseta
     public function cliente(){
-        return $this->belongsTo(ModeloCliente::class,'id_cliente');
+        return $this->belongsTo(modeloCliente::class,'id_cliente');
     }
 
     //la clave foranea, la que aparece en detalles
     public function detalles(){
-        return $this->hasMany(ModeloDetalles::class,'id_pedido');
+        return $this->hasMany(modeloDetalles::class,'id_pedido');
     }
 
 }

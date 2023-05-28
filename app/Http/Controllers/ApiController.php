@@ -81,4 +81,16 @@ class ApiController extends Controller
         return response()->json($equipos);
     }
 
+    public function ligaPorId(Request $request) {
+        $liga = modeloLiga::where('id_liga',$request->id)
+        ->get();
+        return response()->json($liga);
+    }
+
+    public function equipoPorId(Request $request) {
+        $equipo = modeloEquipo::where('id_equipo',$request->id)
+        ->get();
+        return response()->json($equipo);
+    }
+
 }

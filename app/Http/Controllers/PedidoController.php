@@ -13,7 +13,7 @@ class PedidoController extends Controller
     public function index()
     {
         $mensaje = "";
-        $pedidos = modeloPedido::all();
+        $pedidos =ModeloPedido::with(['detalles.camiseta', 'cliente'])->get();
         return view('Pedido.index')->with('pedidos',$pedidos)->with('mensaje',$mensaje);
     }
 
