@@ -12,6 +12,10 @@ class PedidosPorTiempoController extends Controller
      */
     public function index()
     {
+        $validated = request()->validate([
+            'inicio' => ['required','date'],
+            'fin' => ['required','date'],
+        ]);
         $inicio = request()->get('inicio');
         $fin = request()->get('fin');
         $pedidos = ModeloPedido::with(['detalles.camiseta', 'cliente'])->whereBetween('fecha', [$inicio, $fin])

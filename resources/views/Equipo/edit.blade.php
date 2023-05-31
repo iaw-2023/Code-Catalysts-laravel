@@ -4,6 +4,7 @@
 
 @section('content')
     <h2>Editar equipo</h2>
+    <x-validacion></x-validacion>
     <form action="{{route('equipos.update',$equipo->id_equipo)}}" method="POST">
         @csrf
         @method('PUT')

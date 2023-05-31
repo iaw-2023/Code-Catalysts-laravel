@@ -4,6 +4,7 @@
 
 @section('content')
     <h2>Crear equipo</h2>
+    <x-validacion></x-validacion>
     <form action="{{route('equipos.store')}}" method="POST">
         @csrf
         <div class="form-group">

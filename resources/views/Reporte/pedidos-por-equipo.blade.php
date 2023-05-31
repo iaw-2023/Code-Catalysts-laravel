@@ -4,6 +4,7 @@
 
 @section('content')
     <h2>Historial de pedidos por equipo</h2>
+    <x-validacion></x-validacion>
     <form action="{{route('pedidoPorEquipo.index')}}" method="GET">
         @csrf
         <div class="form-group">

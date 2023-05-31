@@ -4,6 +4,7 @@
 
 @section('content')
     <h2>Crear camiseta</h2>
+    <x-validacion></x-validacion>
     <form action="{{route('camisetas.store')}}" method="POST">
         @csrf
         <div class="form-group">

@@ -12,6 +12,9 @@ class CamisetasPorLigaController extends Controller
      */
     public function index()
     {
+        $validated = request()->validate([
+            'liga' => ['required','exists:liga,nombre'],
+        ]);
         $liga = request()->get('liga');
         $reportes = ModeloCamiseta::whereHas('equipo', function ($query) use ($liga) { $query->whereHas('liga', function ($query) use ($liga) { $query->where('nombre', $liga); });})
         ->get();

@@ -12,6 +12,9 @@ class PedidosPorCamisetaController extends Controller
      */
     public function index()
     {
+        $validated = request()->validate([
+            'camiseta' => ['required','exists:camiseta,descripcion'],
+        ]);
         $camiseta = request()->get('camiseta');
         $pedidos = ModeloPedido::whereHas('detalles.camiseta', function ($query) use ($camiseta) { $query->where('descripcion', $camiseta); })->with('cliente', 'detalles.camiseta')
         ->get();

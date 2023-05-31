@@ -12,6 +12,9 @@ class PedidosPorClienteController extends Controller
      */
     public function index()
     {
+        $validated = request()->validate([
+            'cliente' => ['required','exists:cliente,email'],
+        ]);
         $cliente = request()->get('cliente');
         $pedidos = ModeloPedido::whereHas('cliente', function ($query) use ($cliente) { $query->where('email', $cliente);})->with('detalles.camiseta', 'cliente')
         ->get();

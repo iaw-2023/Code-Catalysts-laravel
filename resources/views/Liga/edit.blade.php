@@ -4,6 +4,7 @@
 
 @section('content')
     <h2>Editar liga</h2>
+    <x-validacion></x-validacion>
     <form action="{{route('ligas.update',$liga->id_liga)}}" method="POST">
         @csrf
         @method('PUT')

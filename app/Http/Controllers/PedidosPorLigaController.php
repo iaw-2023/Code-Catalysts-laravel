@@ -12,6 +12,9 @@ class PedidosPorLigaController extends Controller
      */
     public function index()
     {
+        $validated = request()->validate([
+            'liga' => ['required','exists:liga,nombre'],
+        ]);
         $liga = request()->get('liga');
         $pedidos = ModeloPedido::whereHas('detalles.camiseta.equipo.liga', function ($query) use ($liga) { $query->where('nombre', $liga); })->with('detalles.camiseta.equipo.liga', 'cliente')
         ->get();

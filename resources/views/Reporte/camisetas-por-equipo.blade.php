@@ -4,6 +4,7 @@
 
 @section('content')
     <h2>Camisetas por equipo</h2>
+    <x-validacion></x-validacion>
     <form action="{{route('camisetaPorEquipo.index')}}" method="GET">
             @csrf
             <div class="form-group">

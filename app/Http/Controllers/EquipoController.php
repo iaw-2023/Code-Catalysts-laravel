@@ -31,6 +31,10 @@ class EquipoController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nombre' => ['required'],
+            'liga' => ['required','exists:liga,nombre'],
+        ]);
         $liga = modeloLiga::where('nombre', $request->get('liga'))->first();
         $equipo = new modeloEquipo();
         $equipo->nombre = $request->get('nombre');
@@ -64,6 +68,10 @@ class EquipoController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validated = $request->validate([
+            'nombre' => ['required'],
+            'liga' => ['required','exists:liga,nombre'],
+        ]);
         $liga = modeloLiga::where('nombre', $request->get('liga'))->first();
         $equipo = modeloEquipo::find($id);
         $equipo->nombre = $request->get('nombre');

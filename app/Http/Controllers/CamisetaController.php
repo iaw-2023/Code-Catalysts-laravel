@@ -32,6 +32,14 @@ class CamisetaController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'descripcion' => ['required'],
+            'precio' => ['required','gte:1','numeric'],
+            'talles' => ['required'],
+            'imagen' => ['required'],
+            'estado' => ['required'],
+            'equipo' => ['required','exists:equipo,nombre'],
+        ]);
         $equipo = modeloEquipo::where('nombre', $request->get('equipo'))->first();
         $camiseta = new modeloCamiseta();
         $camiseta->descripcion = $request->get('descripcion');
@@ -69,6 +77,14 @@ class CamisetaController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validated = $request->validate([
+            'descripcion' => ['required'],
+            'precio' => ['required','gte:1','numeric'],
+            'talles' => ['required'],
+            'imagen' => ['required'],
+            'estado' => ['required'],
+            'equipo' => ['required','exists:equipo,nombre'],
+        ]);
         $equipo = modeloEquipo::where('nombre', $request->get('equipo'))->first();
         $camiseta = modeloCamiseta::find($id);
         $camiseta->descripcion = $request->get('descripcion');

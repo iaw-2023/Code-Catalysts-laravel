@@ -4,6 +4,7 @@
 
 @section('content')
     <h2>Historial de pedidos por periodo de tiempo</h2>
+    <x-validacion></x-validacion>
     <form action="{{route('pedidoPorTiempo.index')}}" method="GET">
         @csrf
         <div class="form-group">

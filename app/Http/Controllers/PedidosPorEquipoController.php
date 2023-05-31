@@ -12,6 +12,9 @@ class PedidosPorEquipoController extends Controller
      */
     public function index()
     {
+        $validated = request()->validate([
+            'equipo' => ['required','exists:equipo,nombre'],
+        ]);
         $equipo = request()->get('equipo');
         $pedidos = ModeloPedido::whereHas('detalles.camiseta.equipo', function ($query) use ($equipo) { $query->where('nombre', $equipo); })->with('detalles.camiseta', 'cliente')
         ->get();

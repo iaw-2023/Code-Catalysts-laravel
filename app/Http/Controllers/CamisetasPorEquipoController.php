@@ -12,6 +12,9 @@ class CamisetasPorEquipoController extends Controller
      */
     public function index()
     {
+        $validated = request()->validate([
+            'equipo' => ['required','exists:equipo,nombre'],
+        ]);
         $equipo = request()->get('equipo');
         $reportes = ModeloCamiseta::whereHas('equipo', function ($query) use ($equipo) { $query->where('nombre', $equipo); })
         ->get();

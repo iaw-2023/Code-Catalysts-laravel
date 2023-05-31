@@ -28,7 +28,10 @@ class LigaController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {   
+        $validated = $request->validate([
+            'nombre' => ['required'],
+        ]);
         $liga = new modeloLiga();
         $liga->nombre = $request->get('nombre');
         $liga->created_at = now();
@@ -59,6 +62,9 @@ class LigaController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validated = $request->validate([
+            'nombre' => ['required'],
+        ]);
         $liga = modeloLiga::find($id);
         $liga->nombre = $request->get('nombre');
         $liga->updated_at = now();
