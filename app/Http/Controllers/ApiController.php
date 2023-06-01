@@ -8,6 +8,7 @@ use App\Models\modeloLiga;
 use App\Models\modeloPedido;
 use App\Models\modeloEquipo;
 use App\Models\modeloDetalles;
+use App\Models\modeloCliente;
 use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
@@ -48,21 +49,35 @@ class ApiController extends Controller
     }
 
     public function pedido(Request $request) {
-        $pedido = new modeloPedido();
-        $pedido->id_cliente = $request->id_cliente;
-        $pedido->fecha = now();
-        $pedido->created_at = now();
-        $pedido->updated_at = now();
-        $pedido->save();
-        $ultimo_pedido = modeloPedido::latest('id_pedido')->first();
-        foreach($request->camisetas as $camiseta) {
-                $detalle = new modeloDetalles();
-                $detalle->id_pedido = $ultimo_pedido->id_pedido;
-                $detalle->id_camiseta = $camiseta["id_camiseta"];
-                $detalle->talle = $camiseta["talle"];
-                $detalle->created_at = now();
-                $detalle->updated_at = now();
-                $detalle->save();
+        if (modeloCliente::where('id_cliente',$request->id_cliente)->exists()) {
+            DB::beginTransaction();
+            $pedido = new modeloPedido();
+            $pedido->id_cliente = $request->id_cliente;
+            $pedido->fecha = now();
+            $pedido->created_at = now();
+            $pedido->updated_at = now();
+            $pedido->save();
+            $ultimo_pedido = modeloPedido::latest('id_pedido')->first();
+            foreach($request->camisetas as $camiseta) {
+                if (modeloCamiseta::where('id_camiseta',$camiseta["id_camiseta"])->exists()) {
+                    $detalle = new modeloDetalles();
+                    $detalle->id_pedido = $ultimo_pedido->id_pedido;
+                    $detalle->id_camiseta = $camiseta["id_camiseta"];
+                    $detalle->talle = $camiseta["talle"];
+                    $detalle->created_at = now();
+                    $detalle->updated_at = now();
+                    $detalle->save();
+                }
+                else {
+                    DB::rollBack();
+                    return response()->json("La camiseta con id " . $camiseta['id_camiseta'] . " no se encuentra en la base de datos.",500);
+                }
+            }
+            DB::commit();
+            return response()->json("El pedido fue registrado correctamente.",200);
+        }
+        else {
+            return response()->json("El cliente no se encuentra en la base de datos.",500);
         }
     }
 
