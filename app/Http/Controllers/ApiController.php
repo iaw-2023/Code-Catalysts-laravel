@@ -39,12 +39,10 @@ class ApiController extends Controller
     }
 
     public function camisetasPorLiga(Request $request) {
-        $camisetas = modeloLiga::join('equipo', 'liga.id_liga', '=', 'equipo.id_liga')
-            ->join('camiseta', 'equipo.id_equipo', '=', 'camiseta.id_equipo')
-            ->select('id_camiseta','descripcion','precio','talles','imagen', 'equipo.id_equipo')
-            ->where('liga.id_liga',$request->id)
-            ->where('estado','Habilitado')
-            ->get();
+        $camisetas = modeloCamiseta::whereHas('equipo', function ($query) use ($request) {  $query->where('id_liga', $request->id);})->where('estado', 'Habilitado')
+        ->with('equipo:id_equipo')
+        ->get();
+        
         return response()->json($camisetas);
     }
 
