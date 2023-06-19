@@ -28,3 +28,6 @@ Route::get('camiseta/{id}','App\Http\Controllers\ApiController@camisetasPorId');
 Route::get('equipos/liga/{id}','App\Http\Controllers\ApiController@equiposPorLiga');
 Route::get('liga/{id}','App\Http\Controllers\ApiController@ligaPorId');
 Route::get('equipo/{id}','App\Http\Controllers\ApiController@equipoPorId');
+Route::post('login', 'App\Http\Controllers\ApiController@login');
+Route::post('register', 'App\Http\Controllers\ApiController@register');
+Route::get('pedidos/{email}','App\Http\Controllers\ApiController@pedidosPorEmail');
