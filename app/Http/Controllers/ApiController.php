@@ -169,6 +169,7 @@ class ApiController extends Controller
             $cliente = modeloCliente::where('email', $request->email)->first();
             $pedidos = modeloPedido::where('id_cliente',$cliente->id_cliente)
             ->join('detalle_pedido','detalle_pedido.id_pedido','=','pedido.id_pedido')
+            ->join('camiseta','camiseta.id_camiseta','=','detalle_pedido.id_camiseta')
             ->get();
             return response()->json($pedidos);
         }else{
