@@ -12,6 +12,7 @@ use App\Models\modeloCliente;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use MercadoPago\SDK;
 
 class ApiController extends Controller
 {
@@ -175,5 +176,37 @@ class ApiController extends Controller
         }else{
             return response()->json("email invalido",400);
         }
+    }
+
+    public function mercadoPago(Request $request){
+        \MercadoPago\SDK::setAccessToken('TEST-6003817481335254-062017-3dc975bcfed8df6f5cc77b2132ef9d9f-389020167');
+
+        $payment = new \MercadoPago\Payment();
+
+
+        $contents = $request;
+        $payment->transaction_amount = $contents['transaction_amount'];
+        $payment->token = $contents['token'];
+        $payment->installments = $contents['installments'];
+        $payment->payment_method_id = $contents['payment_method_id'];
+        $payment->issuer_id = $contents['issuer_id'];
+
+        $payer = new \MercadoPago\Payer();
+        $payer->email = $contents['payer']['email'];
+        $payer->identification = array(
+            "type" => $contents['payer']['identification']['type'],
+            "number" => $contents['payer']['identification']['number']
+        );
+        
+        $payment->payer = $payer;
+
+        $payment->save();
+
+        $response = array(
+            'status' => 'approved',
+            'status_detail' => $payment->status_detail,
+            'id' => $payment->id
+        );
+        return response()->json($response);
     }
 }
