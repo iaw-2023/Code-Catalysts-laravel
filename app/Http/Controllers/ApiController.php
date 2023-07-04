@@ -9,6 +9,7 @@ use App\Models\modeloPedido;
 use App\Models\modeloEquipo;
 use App\Models\modeloDetalles;
 use App\Models\modeloCliente;
+use App\Models\modeloSesionesActivas;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -59,6 +60,8 @@ class ApiController extends Controller
         
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
+            'token' => 'required|numeric',
+            'camisetas' => 'required',
         ]);
     
         if ($validator->fails()) {
@@ -67,10 +70,22 @@ class ApiController extends Controller
 
         DB::beginTransaction();
 
-        if (modeloCliente::where('email',$request->email)->exists()) {
-            $cliente = modeloCliente::where('email',$request->email)->first();
-        }else{
-            return response()->json("El email no se encuentra en la base de datos",500);
+        if (modeloSesionesActivas::where('email',$request->email)->exists()) {
+            if (modeloSesionesActivas::where('token',$request->token)->exists()) {
+                $sesionActiva = modeloSesionesActivas::find($request->token);
+                if ($sesionActiva->email == $request->email) {
+                    $cliente = modeloCliente::where('email',$request->email)->first();
+                }
+                else {
+                    return response()->json("Token inválido.",400);
+                }
+            }
+            else {
+                return response()->json("Token inválido.",400);
+            }  
+        }
+        else {
+            return response()->json("El usuario no tiene una sesión activa.",500);
         }
 
         $pedido = new modeloPedido();
@@ -128,15 +143,60 @@ class ApiController extends Controller
     }
 
     public function login(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+    
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
         if (modeloCliente::where('email',$request->email)->exists()) {
             $cliente = modeloCliente::where('email', $request->email)->first();
             if (Hash::check($request->password, $cliente->password)) {
-                return response()->json("Usuario válido", 200);
+                $sesionActiva = new modeloSesionesActivas();
+                $sesionActiva->email = $request->email;
+                $sesionActiva->save();
+                $token = modeloSesionesActivas::latest('token')->select('token')->first();
+                return response()->json($token, 200);
             } else {
-                return response()->json("Contraseña inválida", 400);
+                return response()->json("Contraseña inválida.", 400);
             }
         }else{
-            return response()->json("email invalido",400);
+            return response()->json("Email inválido.",400);
+        }
+    }
+
+    public function logout(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'token' => 'required|numeric',
+        ]);
+    
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
+        if (modeloSesionesActivas::where('email',$request->email)->exists()) {
+            if (modeloSesionesActivas::where('token',$request->token)->exists()) {
+                $sesionActiva = modeloSesionesActivas::find($request->token);
+                if ($sesionActiva->email == $request->email) {
+                    $sesionActiva->delete();
+                    return response()->json("La sesión fue cerrada correctamente.",200);
+                }
+                else {
+                    return response()->json("Token inválido.",400);
+                }
+            }
+            else {
+                return response()->json("Token inválido.",400);
+            }
+        }
+        else {
+            return response()->json("El usuario no tiene una sesión activa.",400);
         }
     }
 
@@ -160,21 +220,50 @@ class ApiController extends Controller
                 $cliente->created_at = now();
                 $cliente->updated_at = now();
                 $cliente->save();
-                return response()->json("Usuario registrado correctamente",200);
+                $sesionActiva = new modeloSesionesActivas();
+                $sesionActiva->email = $request->email;
+                $sesionActiva->save();
+                $token = modeloSesionesActivas::latest('token')->select('token')->first();
+                return response()->json($token, 200);
             }
         }
     }
 
     public function pedidosPorEmail(Request $request){
-        if (modeloCliente::where('email',$request->email)->exists()) {
-            $cliente = modeloCliente::where('email', $request->email)->first();
-            $pedidos = modeloPedido::where('id_cliente',$cliente->id_cliente)
-            ->join('detalle_pedido','detalle_pedido.id_pedido','=','pedido.id_pedido')
-            ->join('camiseta','camiseta.id_camiseta','=','detalle_pedido.id_camiseta')
-            ->get();
-            return response()->json($pedidos);
-        }else{
-            return response()->json("email invalido",400);
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'token' => 'required|numeric',
+        ]);
+    
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
+        $email = $request->input('email');
+        $token = $request->input('token');
+
+        if (modeloSesionesActivas::where('email',$email)->exists()) {
+            if (modeloSesionesActivas::where('token',$token)->exists()) {
+                $sesionActiva = modeloSesionesActivas::find($token);
+                if ($sesionActiva->email == $email) {
+                    $cliente = modeloCliente::where('email', $email)->first();
+                    $pedidos = modeloPedido::where('id_cliente',$cliente->id_cliente)
+                    ->join('detalle_pedido','detalle_pedido.id_pedido','=','pedido.id_pedido')
+                    ->join('camiseta','camiseta.id_camiseta','=','detalle_pedido.id_camiseta')
+                    ->get();
+                    return response()->json($pedidos,200);
+                }
+                else {
+                    return response()->json("Token inválido.",400);
+                }
+            }
+            else {
+                return response()->json("Token inválido.",400);
+            }
+        }
+        else {
+            return response()->json("El usuario no tiene una sesión activa.",400);
         }
     }
 

@@ -29,6 +29,7 @@ Route::get('equipos/liga/{id}','App\Http\Controllers\ApiController@equiposPorLig
 Route::get('liga/{id}','App\Http\Controllers\ApiController@ligaPorId');
 Route::get('equipo/{id}','App\Http\Controllers\ApiController@equipoPorId');
 Route::post('login', 'App\Http\Controllers\ApiController@login');
+Route::post('logout', 'App\Http\Controllers\ApiController@logout');
 Route::post('register', 'App\Http\Controllers\ApiController@register');
-Route::get('pedidos/{email}','App\Http\Controllers\ApiController@pedidosPorEmail');
+Route::get('pedidos','App\Http\Controllers\ApiController@pedidosPorEmail');
 Route::post('process_payment','App\Http\Controllers\ApiController@mercadoPago');

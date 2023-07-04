@@ -256,7 +256,7 @@
         }
       }
     },
-    "/pedidos/{email}": {
+    "/pedidos": {
       "get": {
         "tags": [
           "Pedidos"
@@ -265,11 +265,20 @@
         "parameters": [
           {
             "name": "email",
-            "in": "path",
+            "in": "query",
             "description": "Email del cliente a obtener sus pedidos.",
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Token de la sesión activa del cliente.",
+            "required": true,
+            "schema": {
+              "type": "integer"
             }
           }
         ],
@@ -285,7 +294,7 @@
         "tags": [
           "Clientes"
         ],
-        "summary": "Verifica que las credenciales ingresadas por el cliente sean válidas.",
+        "summary": "Loguea a un cliente.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -307,6 +316,38 @@
         "responses": {
           "200": {
             "description": "(OK) Las credenciales del cliente son válidas."
+          }
+        }
+      }
+    },
+    "/logout": {
+      "post": {
+        "tags": [
+          "Clientes"
+        ],
+        "summary": "Desloguea a un cliente.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "Email del cliente."
+                  },
+                  "token": {
+                    "type": "integer",
+                    "description": "Token de la sesión activa del cliente."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "(OK) La sesión fue cerrada correctamente."
           }
         }
       }
