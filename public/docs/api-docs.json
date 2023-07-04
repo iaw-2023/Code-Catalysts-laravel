@@ -227,6 +227,10 @@
                     "type": "string",
                     "description": "Email del cliente que realiza el pedido."
                   },
+                  "token": {
+                    "type": "integer",
+                    "description": "Token de la sesión activa del cliente."
+                  },
                   "camisetas": {
                     "type": "array",
                     "items": {
