@@ -267,35 +267,35 @@ class ApiController extends Controller
         }
     }
 
-    public function mercadoPago(Request $request){
-        \MercadoPago\SDK::setAccessToken('TEST-6003817481335254-062017-3dc975bcfed8df6f5cc77b2132ef9d9f-389020167');
+    public function mercadoPago(Request $request)
+{
+    \MercadoPago\SDK::setAccessToken('TEST-6003817481335254-062017-3dc975bcfed8df6f5cc77b2132ef9d9f-389020167');
 
-        $payment = new \MercadoPago\Payment();
+    $payment = new \MercadoPago\Payment();
 
+    $payment->transaction_amount = $request->input('transaction_amount');
+    $payment->token = $request->input('token');
+    $payment->installments = $request->input('installments');
+    $payment->payment_method_id = $request->input('payment_method_id');
+    $payment->issuer_id = $request->input('issuer_id');
 
-        $contents = $request;
-        $payment->transaction_amount = $contents['transaction_amount'];
-        $payment->token = $contents['token'];
-        $payment->installments = $contents['installments'];
-        $payment->payment_method_id = $contents['payment_method_id'];
-        $payment->issuer_id = $contents['issuer_id'];
+    $payer = new \MercadoPago\Payer();
+    $payer->email = $request->input('payer.email');
+    $payer->identification = array(
+        "type" => $request->input('payer.identification.type'),
+        "number" => $request->input('payer.identification.number')
+    );
 
-        $payer = new \MercadoPago\Payer();
-        $payer->email = $contents['payer']['email'];
-        $payer->identification = array(
-            "type" => $contents['payer']['identification']['type'],
-            "number" => $contents['payer']['identification']['number']
-        );
-        
-        $payment->payer = $payer;
+    $payment->payer = $payer;
 
-        $payment->save();
+    $payment->save();
 
-        $response = array(
-            'status' => 'approved',
-            'status_detail' => $payment->status_detail,
-            'id' => $payment->id
-        );
-        return response()->json($response);
-    }
+    $response = array(
+        'status' => $payment->status,
+        'status_detail' => $payment->status_detail,
+        'id' => $payment->id
+    );
+
+    return response()->json($response);
+}
 }
