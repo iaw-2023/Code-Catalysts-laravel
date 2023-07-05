@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->unsignedInteger('precio');
             $table->string('talles');
-            $table->string('imagen');
+            $table->longText('imagen');
             $table->unsignedBigInteger('id_equipo');
             $table->foreign('id_equipo')->references('id_equipo')->on('equipo');
             $table->string('estado');
