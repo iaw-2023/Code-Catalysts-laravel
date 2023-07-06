@@ -83,7 +83,6 @@ class CamisetaController extends Controller
             'descripcion' => ['required'],
             'precio' => ['required','gte:1','numeric'],
             'talles' => ['required'],
-            'imagen' => ['required'],
             'estado' => ['required'],
             'equipo' => ['required','exists:equipo,nombre'],
         ]);
@@ -92,7 +91,11 @@ class CamisetaController extends Controller
         $camiseta->descripcion = $request->get('descripcion');
         $camiseta->precio = $request->get('precio');
         $camiseta->talles = $request->get('talles');
-        $camiseta->imagen = $request->get('imagen');
+        if ($request->hasFile('imagen')) {//si el usuario cargo una imagen
+            $file = $request->file('imagen');//obtiene la imagen ingresada por el usuario
+            $base64Image = base64_encode(file_get_contents($file->getRealPath()));//codifica la imagen en base64
+            $camiseta->imagen = $base64Image;
+        }
         $camiseta->id_equipo = $equipo->id_equipo;
         $camiseta->estado = $request->get('estado');
         $camiseta->updated_at = now();

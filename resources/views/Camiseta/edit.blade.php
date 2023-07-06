@@ -5,7 +5,7 @@
 @section('content')
     <h2>Editar camiseta</h2>
     <x-validacion></x-validacion>
-    <form action="{{route('camisetas.update',$camiseta->id_camiseta)}}" method="POST">
+    <form action="{{route('camisetas.update',$camiseta->id_camiseta)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -23,7 +23,8 @@
         </div>
         <div class="form-group">
             <label for="">Imagen</label>
-            <input type="text" class="form-control" id="imagen" name="imagen" required value="{{$camiseta->imagen}}">
+            <p>Si desea modificar la imagen actual de la camiseta, cargue una nueva. En cambio, si desea mantener la imagen existente, deje este campo vacío.</p>
+            <input type="file" class="form-control" id="imagen" name="imagen">
         </div>
         <div class="form-group">
             <label for="">Equipo</label>
