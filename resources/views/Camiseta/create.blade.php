@@ -5,7 +5,7 @@
 @section('content')
     <h2>Crear camiseta</h2>
     <x-validacion></x-validacion>
-    <form action="{{route('camisetas.store')}}" method="POST">
+    <form action="{{route('camisetas.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="">Descripción</label>
@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="">Imagen</label>
-            <input type="text" class="form-control" id="imagen" name="imagen" required>
+            <input type="file" class="form-control" id="imagen" name="imagen" required>
         </div>
         <div class="form-group">
             <label for="">Equipo</label>

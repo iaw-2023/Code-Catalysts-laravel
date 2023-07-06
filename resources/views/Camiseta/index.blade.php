@@ -22,7 +22,7 @@
                     <td>{{$camiseta->descripcion}}</td>
                     <td>{{$camiseta->precio}}</td>
                     <td>{{$camiseta->talles}}</td>
-                    <td><img src={{$camiseta->imagen}} width="100px"></td>
+                    <td><img src="data:image/jpg;base64,{{$camiseta->imagen}}"  width="100px"></td>
                     <td>{{$camiseta->estado}}</td>
                     <td> <a href="camisetas/{{$camiseta->id_camiseta}}/edit" class="btn btn-outline-primary"> Editar </a> </td>
                 </tr>
