@@ -21,7 +21,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('Empleado.create');
     }
 
     /**
@@ -29,7 +29,23 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nombre' => ['required'],
+            'apellido' => ['required'],
+            'email' => ['required','email','unique:users,email'],
+            'password' => ['required']
+        ]);
+        
+        $empleado = new User();
+        $empleado->nombre = $request->get('nombre');
+        $empleado->apellido = $request->get('apellido');
+        $empleado->email = $request->get('email');
+        $empleado->password = $request->get('password');
+        $empleado->rol = "empleado";
+        $empleado->created_at = now();
+        $empleado->updated_at = now();
+        $empleado->save();
+        return redirect('/empleados');
     }
 
     /**

@@ -25,7 +25,7 @@
                             if (confirm('¿Estás seguro de eliminar este empleado?')) {
                                 document.getElementById('eliminar-empleado-{{ $empleado->id }}').submit();
                             }"
-                            class="btn btn-outline-primary"
+                            class="btn btn-outline-danger"
                         >Eliminar</a>
                         <form id="eliminar-empleado-{{ $empleado->id }}" action="{{ route('empleados.destroy', $empleado->id) }}" method="POST" style="display: none;">
                             @csrf
