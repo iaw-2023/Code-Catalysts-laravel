@@ -9,7 +9,9 @@
             <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Liga</th>
-                <th scope="col"> </th>
+                @if(Auth::user()->rol === 'empleado')
+                    <th scope="col"> </th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -17,7 +19,9 @@
             <tr>
                 <td>{{$equipo->nombre}}</td>
                 <td>{{$equipo->liga->nombre}}</td>
-                <td> <a href="equipos/{{$equipo->id_equipo}}/edit" class="boton btn btn-outline-primary"> Editar </a> </td>
+                @if(Auth::user()->rol === 'empleado')
+                    <td> <a href="equipos/{{$equipo->id_equipo}}/edit" class="boton btn btn-outline-primary"> Editar </a> </td>
+                @endif
             </tr>
             @endforeach
         </tbody>

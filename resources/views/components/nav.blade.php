@@ -14,7 +14,9 @@
             Camisetas
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ url('/') }}/camisetas/create"> Crear camiseta </a>
+                @if(Auth::user()->rol === 'empleado')
+                    <a class="dropdown-item" href="{{ url('/') }}/camisetas/create"> Crear camiseta </a>
+                @endif
                 <a class="dropdown-item" href="{{ url('/') }}/camisetas"> Mostrar Camisetas </a> 
             </div>
         </li>
@@ -24,7 +26,9 @@
             Ligas
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ url('/') }}/ligas/create"> Crear liga </a>
+                @if(Auth::user()->rol === 'empleado')
+                    <a class="dropdown-item" href="{{ url('/') }}/ligas/create"> Crear liga </a>
+                @endif
                 <a class="dropdown-item" href="{{ url('/') }}/ligas"> Mostrar Ligas </a> 
             </div>
         </li>
@@ -34,7 +38,9 @@
             Equipos
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ url('/') }}/equipos/create"> Crear equipo </a>
+                @if(Auth::user()->rol === 'empleado')
+                    <a class="dropdown-item" href="{{ url('/') }}/equipos/create"> Crear equipo </a>
+                @endif
                 <a class="dropdown-item" href="{{ url('/') }}/equipos"> Mostrar Equipos </a>
             </div> 
         </li>
@@ -71,6 +77,16 @@
                 <a class="dropdown-item" href="{{ url('/') }}/reporte/camisetas-por-liga"> Camisetas por liga </a> 
             </div>
         </li>
+        @if(Auth::user()->rol === 'administrador')
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Empleados
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ url('/') }}/empleados"> Mostrar empleados </a> 
+                </div>
+            </li>      
+        @endif
         
         <li class="nav-item">
             <form class="formularioNav" method="POST" action="{{ route('logout') }}">

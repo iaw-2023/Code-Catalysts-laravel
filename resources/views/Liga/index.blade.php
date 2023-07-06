@@ -8,14 +8,18 @@
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
-                    <th scope="col"> </th>
+                    @if(Auth::user()->rol === 'empleado')
+                        <th scope="col"> </th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
                 @foreach ($ligas as $liga)
                 <tr>
                     <td>{{$liga->nombre}}</td>
-                    <td> <a href="ligas/{{$liga->id_liga}}/edit" class="btn btn-outline-primary"> Editar </a> </td>
+                    @if(Auth::user()->rol === 'empleado')
+                        <td> <a href="ligas/{{$liga->id_liga}}/edit" class="btn btn-outline-primary"> Editar </a> </td>
+                    @endif
                 </tr>
                 @endforeach
             </tbody>

@@ -13,7 +13,9 @@
                     <th scope="col">Talles</th>
                     <th scope="col">Imagen</th>
                     <th scope="col">Estado</th>
-                    <th scope="col"> </th>
+                    @if(Auth::user()->rol === 'empleado')
+                        <th scope="col"> </th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -24,7 +26,9 @@
                     <td>{{$camiseta->talles}}</td>
                     <td><img src="data:image/jpg;base64,{{$camiseta->imagen}}"  width="100px"></td>
                     <td>{{$camiseta->estado}}</td>
-                    <td> <a href="camisetas/{{$camiseta->id_camiseta}}/edit" class="btn btn-outline-primary"> Editar </a> </td>
+                    @if(Auth::user()->rol === 'empleado')
+                        <td> <a href="camisetas/{{$camiseta->id_camiseta}}/edit" class="btn btn-outline-primary"> Editar </a> </td>
+                    @endif
                 </tr>
                 @endforeach
             </tbody>

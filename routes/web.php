@@ -32,7 +32,8 @@ Route::resource('equipos','App\Http\Controllers\EquipoController')->middleware([
 Route::resource('clientes','App\Http\Controllers\ClienteController')->middleware(['auth', 'verified']);
 Route::resource('pedidos','App\Http\Controllers\PedidoController')->middleware(['auth', 'verified']);
 Route::resource('reportes','App\Http\Controllers\ReporteController')->middleware(['auth', 'verified']);
-
+Route::resource('empleados','App\Http\Controllers\EmpleadoController')->middleware(['auth', 'verified']);
+Route::delete('empleados/{empleado}', 'App\Http\Controllers\EmpleadoController@destroy')->name('empleados.destroy')->middleware(['auth', 'verified']);
 Route::get('/reporte/pedidos-por-tiempo', function () {
     return view('Reporte.pedidos-por-tiempo');
 })->middleware(['auth', 'verified']);
