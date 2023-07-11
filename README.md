@@ -1,17 +1,18 @@
 ## La Camiseta No Se Mancha
 
 Servidor dedicado al almacenamiento de la información necesaria para la comunicación con la página de venta de camisetas ["La Camiseta No Se Mancha"](https://lacamisetanosemancha-genaro08.vercel.app/)
-LINK:https://garcia-sanchez-laravel-genaro08.vercel.app/
+
+LINK: https://garcia-sanchez-laravel-genaro08.vercel.app/
 
 ### Características
 #### Laravel
 Se utilizó el framework PHP Laravel para la implementación del servidor web.
 
 #### Base de datos
-Se utilizó una base de datos PostgreSQL almacenada en [Supabase] (https://supabase.com/).
+Se utilizó una base de datos PostgreSQL almacenada en [Supabase](https://supabase.com/).
 
 #### API
-Se creó una API para la comunicación con la página de venta de camisetas. Para ello definimos varios endpoints, que pueden encontrarse en la [documentación] (https://garcia-sanchez-laravel-genaro08.vercel.app/rest/docs/).
+Se creó una API para la comunicación con la página de venta de camisetas. Para ello definimos varios endpoints, que pueden encontrarse en la [documentación](https://garcia-sanchez-laravel-genaro08.vercel.app/rest/docs/).
 
 #### Autenticación de usuarios
 Para el login de usuarios se utilizó la autenticación de Laravel.
