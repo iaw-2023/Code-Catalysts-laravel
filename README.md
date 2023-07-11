@@ -1,3 +1,36 @@
+## La Camiseta No Se Mancha
+
+Servidor dedicado al almacenamiento de la información necesaria para la comunicación con la página de venta de camisetas ["La Camiseta No Se Mancha"](https://lacamisetanosemancha-genaro08.vercel.app/)
+LINK:https://garcia-sanchez-laravel-genaro08.vercel.app/
+
+### Características
+#### Laravel
+Se utilizó el framework PHP Laravel para la implementación del servidor web.
+
+#### Base de datos
+Se utilizó una base de datos PostgreSQL almacenada en [Supabase] (https://supabase.com/).
+
+#### API
+Se creó una API para la comunicación con la página de venta de camisetas. Para ello definimos varios endpoints, que pueden encontrarse en la [documentación] (https://garcia-sanchez-laravel-genaro08.vercel.app/rest/docs/).
+
+#### Autenticación de usuarios
+Para el login de usuarios se utilizó la autenticación de Laravel.
+
+#### Middleware
+Se utilizó un middleware para evitar que usuarios que no estén logueados puedan acceder a las operaciones de la página.
+
+#### Roles
+Se definieron 2 roles para el acceso a la información:
+- Administrador: puede visualizar los datos sobre: camisetas, equipos, ligas, clientes, pedidos y reportes. Además puede dar de alta y de baja a empleados. Por último, puede modificar sus datos personales.
+- Empleado: puede visualizar los datos sobre: camisetas, equipos, ligas, clientes, pedidos y reportes. Además, puede crear y editar camisetas, equipos y ligas. Por último, puede modificar sus datos personales.
+
+#### Servicio externo
+COMPLETAR
+
+### Diagrama Entidad-Relación
+
+<p align="center"><img src="https://i.ibb.co/5G4qhgv/Diagrama-Entidad-Relacion.jpg" border="0"></p>
+
 ## Pasos
 
 - clonar el repo https://github.com/iaw-2023/laravel-template y mantener como owner la organización de la materia.
@@ -83,56 +116,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-## Tienda “La camiseta no se mancha”
-
-<p align="center"><img src="https://i.ibb.co/7WBsHrf/Logo.png" border="0"></p>
-
-Nuestro proyecto se tratará de una tienda online de camisetas de fútbol, en la cual los
-clientes podrán comprar camisetas de la Liga Argentina, Inglesa, Española, Italiana,
-Francesa y Alemana.
-
-### Diagrama Entidad-Relación
-
-<p align="center"><img src="https://i.ibb.co/5G4qhgv/Diagrama-Entidad-Relacion.jpg" border="0"></p>
-
-#### Proyecto Framework PHP - Laravel
-
-- Qué entidades se podrán actualizar
-	- Pueden realizar ABM sobre:
-		- Las camisetas.
-		- Las ligas.
-		- Los equipos.
-
-- Qué reportes se podrán generar o visualizar
-	- Historial de pedidos por periodo de tiempo.
-	- Historial de pedidos por cliente [OPCIONAL: indicar periodo de tiempo]
-	- Historial de pedidos por camiseta [OPCIONAL: indicar periodo de tiempo]
-	- Historial de pedidos por equipo [OPCIONAL: indicar periodo de tiempo]
-	- Historial de pedidos por liga [OPCIONAL: indicar periodo de tiempo]
-	- Mostrar camisetas por equipo.
-	- Mostrar camisetas por liga.
-- Qué entidades se podrán obtener por API
-	- Las camisetas.
-	- Las ligas.
-	- Los pedidos
-	- Los clientes
-	- Los equipos
-- Qué entidades se podrán modificar por API
-	- Los pedidos (clientes crearán pedidos).
-
-#### Proyecto Javascript - React/Vue
-- Qué información podrá ver el usuario
-	- Camisetas por liga y equipo.
-- Qué acciones podrá realizar, ya sea la primera vez que ingrese a la aplicación como futuros accesos a la misma
-	- Comprar camisetas.
-	- Solicitar historial de sus pedidos.
-
-#### Deploy de Vercel
-- Link: https://garcia-sanchez-laravel-genaro08.vercel.app/
-
-#### Documentación Swagger
-- Link: https://garcia-sanchez-laravel-genaro08.vercel.app/rest/documentation
-
-
-
