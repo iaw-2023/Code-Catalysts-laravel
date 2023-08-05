@@ -27,12 +27,19 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('camisetas','App\Http\Controllers\CamisetaController')->middleware(['auth', 'verified']);
+Route::resource('camisetas/create','App\Http\Controllers\CamisetaController')->middleware(['auth', 'empleado']);
+Route::resource('camisetas/{camiseta}/edit','App\Http\Controllers\CamisetaController')->middleware(['auth', 'empleado']);
 Route::resource('ligas','App\Http\Controllers\LigaController')->middleware(['auth', 'verified']);
+Route::resource('ligas/create','App\Http\Controllers\LigaController')->middleware(['auth', 'empleado']);
+Route::resource('ligas/{liga}/edit','App\Http\Controllers\LigaController')->middleware(['auth', 'empleado']);
 Route::resource('equipos','App\Http\Controllers\EquipoController')->middleware(['auth', 'verified']);
+Route::resource('equipos/create','App\Http\Controllers\EquipoController')->middleware(['auth', 'empleado']);
+Route::resource('equipos/{equipo}/edit','App\Http\Controllers\EquipoController')->middleware(['auth', 'empleado']);
 Route::resource('clientes','App\Http\Controllers\ClienteController')->middleware(['auth', 'verified']);
 Route::resource('pedidos','App\Http\Controllers\PedidoController')->middleware(['auth', 'verified']);
 Route::resource('reportes','App\Http\Controllers\ReporteController')->middleware(['auth', 'verified']);
-Route::resource('empleados','App\Http\Controllers\EmpleadoController')->middleware(['auth', 'verified']);
+Route::resource('empleados','App\Http\Controllers\EmpleadoController')->middleware(['auth', 'administrador']);
+Route::resource('empleados/create','App\Http\Controllers\EmpleadoController')->middleware(['auth', 'administrador']);
 Route::delete('empleados/{empleado}', 'App\Http\Controllers\EmpleadoController@destroy')->name('empleados.destroy')->middleware(['auth', 'verified']);
 Route::resource('datos-personales','App\Http\Controllers\DatosPersonalesController')->middleware(['auth', 'verified']);
 Route::resource('noticias','App\Http\Controllers\NoticiasController')->middleware(['auth', 'verified']);

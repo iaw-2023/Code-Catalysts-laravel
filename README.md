@@ -23,7 +23,9 @@ Se creó una API para la comunicación con la página de venta de camisetas. Par
 Para el login de usuarios se utilizó la autenticación de Laravel.
 
 #### Middleware
-Se utilizó un middleware para evitar que usuarios que no estén logueados puedan acceder a las operaciones de la página.
+Se utilizó el middleware auth proporcionado por Laravel para evitar que usuarios que no estén logueados puedan acceder a las operaciones de la página.
+
+Además, se creó un middleware para cada rol de los usuarios que se agregaron.
 
 #### Sportmonks
 Decidimos consumir la [API de Sportmonks](https://www.sportmonks.com/football-api/) para mostrarles a los usuarios información relacionada con los últimos fichajes de los jugadores de las ligas más importantes del mundo.

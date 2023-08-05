@@ -89,17 +89,15 @@
             </li>      
         @endif
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/') }}/datos-personales" >
-                Datos personales
-            </a>
-        </li>
-
-        <li class="nav-item">
             <a class="nav-link" href="{{ url('/') }}/noticias" >
                 Noticias
             </a>
         </li>
-
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('/') }}/datos-personales" >
+                Datos personales
+            </a>
+        </li>
         <li class="nav-item">
             <form class="formularioNav" method="POST" action="{{ route('logout') }}">
                 @csrf
