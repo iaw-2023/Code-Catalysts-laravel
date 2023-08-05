@@ -11,6 +11,11 @@ Se utilizó el framework PHP Laravel para la implementación del servidor web.
 #### Base de datos
 Se utilizó una base de datos PostgreSQL almacenada en [Supabase](https://supabase.com/).
 
+#### Administración de archivos
+Las imágenes de las camisetas en venta son almacenadas en la base de datos.
+
+Para realizarlo utilizamos el esquema de codificación Base64.
+
 #### API
 Se creó una API para la comunicación con la página de venta de camisetas. Para ello definimos varios endpoints, que pueden encontrarse en la [documentación](https://garcia-sanchez-laravel-genaro08.vercel.app/rest/docs/).
 
@@ -20,13 +25,13 @@ Para el login de usuarios se utilizó la autenticación de Laravel.
 #### Middleware
 Se utilizó un middleware para evitar que usuarios que no estén logueados puedan acceder a las operaciones de la página.
 
+#### Sportmonks
+Decidimos consumir la [API de Sportmonks](https://www.sportmonks.com/football-api/) para mostrarles a los usuarios información relacionada con los últimos fichajes de los jugadores de las ligas más importantes del mundo.
+
 #### Roles
 Se definieron 2 roles para el acceso a la información:
-- Administrador: puede visualizar los datos sobre: camisetas, equipos, ligas, clientes, pedidos y reportes. Además puede dar de alta y de baja a empleados. Por último, puede modificar sus datos personales.
-- Empleado: puede visualizar los datos sobre: camisetas, equipos, ligas, clientes, pedidos y reportes. Además, puede crear y editar camisetas, equipos y ligas. Por último, puede modificar sus datos personales.
-
-#### Servicio externo
-COMPLETAR
+- Administrador: puede visualizar los datos sobre: camisetas, equipos, ligas, clientes, pedidos, reportes y fichajes. Además puede dar de alta y de baja a empleados. Por último, puede modificar sus datos personales.
+- Empleado: puede visualizar los datos sobre: camisetas, equipos, ligas, clientes, pedidos, reportes y fichajes. Además, puede crear y editar camisetas, equipos y ligas. Por último, puede modificar sus datos personales.
 
 ### Diagrama Entidad-Relación
 
