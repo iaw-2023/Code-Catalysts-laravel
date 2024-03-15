@@ -1,0 +1,42 @@
+body{
+ background-color: #111827;   
+}
+
+form p {
+    font-size: 0.8rem;
+}
+
+.mensajeSinElementos {
+    color: white;
+    margin-left: 15px;
+}
+
+.formularioNav{
+    margin: 0px;
+    cursor: pointer;
+}
+
+form{
+    color: white;
+    margin: 15px;
+}
+
+h2 {
+    color: white;
+    margin: 15px;
+}
+
+.medio{
+    margin: 0 auto;
+    place-items: center;
+    text-align:center;
+}
+
+.logoNav {
+    margin-right: 15px;
+}
+
+.alert-danger {
+    margin: 15px;
+}
+

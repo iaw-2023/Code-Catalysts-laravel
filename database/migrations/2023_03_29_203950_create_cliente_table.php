@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('cliente', function (Blueprint $table) {
             $table->id('id_cliente');
             $table->string('email')->unique();
+            $table->string('password')->unique();
 		    $table->timestamps();
         });
     }
